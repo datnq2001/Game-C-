@@ -33,6 +33,8 @@ void ZOOrkEngine::run() {
             handleUseCommand(arguments);
         } else if (command == "lift") {
             handleLiftCommand(arguments);
+        } else if (command == "open") {
+            handleOpenCommand(arguments); // Thêm xử lý cho lệnh open
         } else if (command == "quit") {
             handleQuitCommand(arguments);
         } else {
@@ -58,6 +60,11 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
     std::cout << currentRoom->getDescription() << "\n";
+
+    // Hiển thị thông tin chi tiết nếu ở phòng south-of-house
+    if (currentRoom->getName() == "south-of-house") {
+        std::cout << "There is a pot of plant here.\n";
+    }
 }
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
@@ -136,6 +143,30 @@ void ZOOrkEngine::handleLiftCommand(std::vector<std::string> arguments) {
         currentRoom->pickUpPlant();
     } else {
         std::cout << "You can't lift that.\n";
+    }
+}
+
+void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Open what?\n";
+        return;
+    }
+
+    if (arguments[0] == "door") {
+        Room* currentRoom = player->getCurrentRoom();
+        if (currentRoom->getName() == "start-room" && currentRoom->isLocked()) {
+            auto key = player->getItem("key");
+            if (key) {
+                std::cout << "You use the key to open the door.\n";
+                currentRoom->setLocked(false); // Mở khóa cửa
+            } else {
+                std::cout << "The door is locked. You need a key to open it.\n";
+            }
+        } else {
+            std::cout << "The door is already open.\n";
+        }
+    } else {
+        std::cout << "You can't open that.\n";
     }
 }
 
