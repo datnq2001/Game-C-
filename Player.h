@@ -32,6 +32,12 @@ public:
     // Method to use an item from the inventory
     void useItem(const std::string& itemName);
 
+    // Method to interact with a character
+    void interactWithCharacter(const std::string& characterName);
+
+    // Override the interact method from Character class
+    void interact() override;
+
     // Delete copy constructor and assignment operator
     Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;

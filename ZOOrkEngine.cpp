@@ -36,6 +36,8 @@ void ZOOrkEngine::run() {
             handleLiftCommand(arguments);
         } else if (command == "open") {
             handleOpenCommand(arguments);
+        } else if (command == "interact") {
+            handleInteractCommand(arguments);
         } else if (command == "quit") {
             handleQuitCommand(arguments);
         } else {
@@ -173,13 +175,22 @@ void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
         if (currentRoom->getName() == "start-room" && !currentRoom->isLocked()) {
             std::cout << "A blinding light engulfs you as you step through the door...\n";
             player->setCurrentRoom(magicForest.get());
-            std::cout << "You find yourself in a new world.\n";
+            std::cout << "You wake up in a new world.\n";
         } else {
             std::cout << "The door is locked. You need to unlock it first.\n";
         }
     } else {
         std::cout << "You can't open that.\n";
     }
+}
+
+void ZOOrkEngine::handleInteractCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Interact with whom?\n";
+        return;
+    }
+
+    player->interactWithCharacter(arguments[0]);
 }
 
 void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments) {

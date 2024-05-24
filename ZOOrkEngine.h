@@ -29,6 +29,7 @@ private:
     void handleUseCommand(std::vector<std::string>);
     void handleLiftCommand(std::vector<std::string>);
     void handleOpenCommand(std::vector<std::string>);
+    void handleInteractCommand(std::vector<std::string>); // Thêm khai báo cho phương thức handleInteractCommand
     void handleQuitCommand(std::vector<std::string>);
 
     static std::vector<std::string> tokenizeString(const std::string&);
