@@ -126,6 +126,10 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments) {
         } else {
             std::cout << "You can't use the key here.\n";
         }
+        item->decreaseQuantity();
+        if (item->getQuantity() <= 0) {
+            player->removeItem(itemName);
+        }
     } else {
         // Use an item from the player's inventory
         player->useItem(itemName);
@@ -159,6 +163,10 @@ void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
             if (key) {
                 std::cout << "You use the key to open the door.\n";
                 currentRoom->setLocked(false); // Mở khóa cửa
+                key->decreaseQuantity();
+                if (key->getQuantity() <= 0) {
+                    player->removeItem("key");
+                }
             } else {
                 std::cout << "The door is locked. You need a key to open it.\n";
             }
