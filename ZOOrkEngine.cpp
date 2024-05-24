@@ -2,9 +2,10 @@
 
 #include <utility>
 
-ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start) {
+ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start, std::shared_ptr<Room> magic_forest)
+    : startRoom(std::move(start)), magicForest(std::move(magic_forest)) {
     player = Player::instance();
-    player->setCurrentRoom(start.get());
+    player->setCurrentRoom(startRoom.get());
     player->getCurrentRoom()->enter();
 }
 
@@ -59,11 +60,17 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
 
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
-    std::cout << currentRoom->getDescription() << "\n";
 
-    // Hiển thị thông tin chi tiết nếu ở phòng south-of-house
-    if (currentRoom->getName() == "south-of-house") {
-        std::cout << "There is a pot of plant here.\n";
+    // Kiểm tra xem người chơi đang ở đâu
+    if (currentRoom->getName() == "magic-forest") {
+        std::cout << "You find yourself in a magic forest filled with glowing plants and strange creatures. This is where your journey as a hero begins.\n";
+    } else {
+        std::cout << currentRoom->getDescription() << "\n";
+
+        // Hiển thị thông tin chi tiết nếu ở phòng south-of-house
+        if (currentRoom->getName() == "south-of-house") {
+            std::cout << "There is a pot of plant here.\n";
+        }
     }
 }
 
@@ -121,7 +128,7 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments) {
     if (itemName == "key") {
         Room* currentRoom = player->getCurrentRoom();
         if (currentRoom->getName() == "start-room" && currentRoom->isLocked()) {
-            std::cout << "You use the key to open the door.\n";
+            std::cout << "You use the key to unlock the door.\n";
             currentRoom->setLocked(false); // Mở khóa cửa
         } else {
             std::cout << "You can't use the key here.\n";
@@ -158,22 +165,12 @@ void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
 
     if (arguments[0] == "door") {
         Room* currentRoom = player->getCurrentRoom();
-        if (currentRoom->getName() == "start-room" && currentRoom->isLocked()) {
-            auto key = player->getItem("key");
-            if (key) {
-                std::cout << "You use the key to open the door.\n";
-                currentRoom->setLocked(false); // Mở khóa cửa
-                key->decreaseQuantity();
-                if (key->getQuantity() <= 0) {
-                    player->removeItem("key");
-                }
-                player->setCurrentRoom(currentRoom->getPassage("south")->getTo());
-                std::cout << "You are transported to a magical forest.\n";
-            } else {
-                std::cout << "The door is locked. You need a key to open it.\n";
-            }
+        if (currentRoom->getName() == "start-room" && !currentRoom->isLocked()) {
+            std::cout << "A blinding light engulfs you as you step through the door...\n";
+            player->setCurrentRoom(magicForest.get());
+            std::cout << "You find yourself in a new world.\n";
         } else {
-            std::cout << "The door is already open.\n";
+            std::cout << "The door is locked. You need to unlock it first.\n";
         }
     } else {
         std::cout << "You can't open that.\n";
@@ -186,7 +183,7 @@ void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments) {
     std::cin >> input;
     std::string quitStr = makeLowercase(input);
 
-    if (quitStr == "y" || quitStr == "yes") {
+    if (quitStr == "y" || (quitStr == "yes")) {
         gameOver = true;
     }
 }

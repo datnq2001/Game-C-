@@ -11,13 +11,15 @@
 
 class ZOOrkEngine {
 public:
-    ZOOrkEngine(std::shared_ptr<Room>);
+    ZOOrkEngine(std::shared_ptr<Room> start, std::shared_ptr<Room> magic_forest);
 
     void run();
 
 private:
     bool gameOver = false;
     Player *player;
+    std::shared_ptr<Room> startRoom;
+    std::shared_ptr<Room> magicForest;
 
     void handleGoCommand(std::vector<std::string>);
     void handleLookCommand(std::vector<std::string>);
@@ -26,7 +28,7 @@ private:
     void handleInventoryCommand(std::vector<std::string>);
     void handleUseCommand(std::vector<std::string>);
     void handleLiftCommand(std::vector<std::string>);
-    void handleOpenCommand(std::vector<std::string>); // Thêm khai báo cho phương thức handleOpenCommand
+    void handleOpenCommand(std::vector<std::string>);
     void handleQuitCommand(std::vector<std::string>);
 
     static std::vector<std::string> tokenizeString(const std::string&);

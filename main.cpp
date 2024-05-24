@@ -52,7 +52,7 @@ int main() {
     // Khóa cửa của start-room ban đầu
     start->setLocked(true);
 
-    ZOOrkEngine zoork(start);
+    ZOOrkEngine zoork(start, magic_forest);
 
     zoork.run();
 
