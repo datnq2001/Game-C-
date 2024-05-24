@@ -3,9 +3,9 @@
 #include <utility>
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start, std::shared_ptr<Room> magic_forest)
-    : startRoom(std::move(start)), magicForest(std::move(magic_forest)) {
+    : startRoom(start), magicForest(magic_forest) {
     player = Player::instance();
-    player->setCurrentRoom(startRoom.get());
+    player->setCurrentRoom(start.get());
     player->getCurrentRoom()->enter();
 }
 
@@ -35,7 +35,7 @@ void ZOOrkEngine::run() {
         } else if (command == "lift") {
             handleLiftCommand(arguments);
         } else if (command == "open") {
-            handleOpenCommand(arguments); // Thêm xử lý cho lệnh open
+            handleOpenCommand(arguments);
         } else if (command == "quit") {
             handleQuitCommand(arguments);
         } else {
@@ -51,8 +51,13 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
     }
 
     std::string direction = arguments[0];
-
     Room* currentRoom = player->getCurrentRoom();
+
+    if (currentRoom->getName() == "magic-forest" && direction != "east") {
+        std::cout << "It is impossible to go " << direction << "!\n";
+        return;
+    }
+
     auto passage = currentRoom->getPassage(direction);
     player->setCurrentRoom(passage->getTo());
     passage->enter();
