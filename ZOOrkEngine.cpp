@@ -167,6 +167,8 @@ void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
                 if (key->getQuantity() <= 0) {
                     player->removeItem("key");
                 }
+                player->setCurrentRoom(currentRoom->getPassage("south")->getTo());
+                std::cout << "You are transported to a magical forest.\n";
             } else {
                 std::cout << "The door is locked. You need a key to open it.\n";
             }
