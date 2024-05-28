@@ -4,6 +4,10 @@
 #include "Room.h"
 #include "ZOOrkEngine.h"
 #include "Key.h"
+#include "Enemy.h"
+#include "Merchant.h"
+#include "Villager.h"
+#include "WoundedDeer.h"
 
 int main() {
     // Các phòng ban đầu
@@ -36,18 +40,27 @@ int main() {
 
     std::shared_ptr<Room> dragon_lair = std::make_shared<Room>("dragon-lair",
                                   "You enter the lair of the dragon. The air is hot, and you can see the glint of treasure and the shadow of the dragon lurking in the darkness.\n");
-
+    std::shared_ptr<Room> ancient_tree = std::make_shared<Room>("ancient-tree",
+                                  "You stand before an ancient tree. \n");
     // Tạo các lối đi giữa các phòng
     Passage::createBasicPassage(start.get(), south_of_house.get(), "south", true);
     Passage::createBasicPassage(south_of_house.get(), behind_house.get(), "east", true);
     Passage::createBasicPassage(behind_house.get(), magic_forest.get(), "north", true);
 
-    Passage::createBasicPassage(magic_forest.get(), ancient_temple.get(), "east", true);
+    Passage::createBasicPassage(magic_forest.get(), ancient_temple.get(), "west", true);
+    Passage::createBasicPassage(magic_forest.get(), ancient_tree.get(), "east", true);
     Passage::createBasicPassage(ancient_temple.get(), dark_cave.get(), "south", true);
     Passage::createBasicPassage(dark_cave.get(), abandoned_village.get(), "west", true);
     Passage::createBasicPassage(abandoned_village.get(), mystic_lake.get(), "north", true);
     Passage::createBasicPassage(mystic_lake.get(), tower_of_sorcery.get(), "west", true);
     Passage::createBasicPassage(tower_of_sorcery.get(), dragon_lair.get(), "north", true);
+
+    // Thêm các nhân vật vào các phòng
+    magic_forest->addCharacter(std::make_shared<WoundedDeer>("deer", "A deer that is severely wounded and lying on the ground."));
+    ancient_temple->addCharacter(std::make_shared<Merchant>("merchant", "A merchant with various goods."));
+    abandoned_village->addCharacter(std::make_shared<Villager>("villager", "A lonely villager looking for help."));
+    // std::shared_ptr<Character> wounded_deer = std::make_shared<Character>("wounded-deer", "A deer that is severely wounded and lying on the ground.");
+    // magic_forest->addCharacter(wounded_deer);
 
     // Khóa cửa của start-room ban đầu
     start->setLocked(true);

@@ -6,6 +6,7 @@
 #include "Item.h"
 #include "Location.h"
 #include <map>
+#include <vector>
 
 class Passage;
 
@@ -28,6 +29,8 @@ public:
     void removeCharacter(const std::string&);
 
     std::shared_ptr<Character> getCharacter(const std::string&);
+
+    std::vector<std::shared_ptr<Character>> getCharacters() const;
 
     void addPassage(const std::string &, std::shared_ptr<Passage>);
 

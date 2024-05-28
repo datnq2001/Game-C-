@@ -153,6 +153,30 @@ Character.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Character.cpp.s
 .PHONY : Character.cpp.s
 
+Enemy.o: Enemy.cpp.o
+.PHONY : Enemy.o
+
+# target to build an object file
+Enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Enemy.cpp.o
+.PHONY : Enemy.cpp.o
+
+Enemy.i: Enemy.cpp.i
+.PHONY : Enemy.i
+
+# target to preprocess a source file
+Enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Enemy.cpp.i
+.PHONY : Enemy.cpp.i
+
+Enemy.s: Enemy.cpp.s
+.PHONY : Enemy.s
+
+# target to generate assembly for a file
+Enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Enemy.cpp.s
+.PHONY : Enemy.cpp.s
+
 GameObject.o: GameObject.cpp.o
 .PHONY : GameObject.o
 
@@ -224,6 +248,30 @@ Location.s: Location.cpp.s
 Location.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Location.cpp.s
 .PHONY : Location.cpp.s
+
+Merchant.o: Merchant.cpp.o
+.PHONY : Merchant.o
+
+# target to build an object file
+Merchant.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Merchant.cpp.o
+.PHONY : Merchant.cpp.o
+
+Merchant.i: Merchant.cpp.i
+.PHONY : Merchant.i
+
+# target to preprocess a source file
+Merchant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Merchant.cpp.i
+.PHONY : Merchant.cpp.i
+
+Merchant.s: Merchant.cpp.s
+.PHONY : Merchant.s
+
+# target to generate assembly for a file
+Merchant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Merchant.cpp.s
+.PHONY : Merchant.cpp.s
 
 NullCommand.o: NullCommand.cpp.o
 .PHONY : NullCommand.o
@@ -417,6 +465,54 @@ RoomDefaultEnterCommand.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.s
 .PHONY : RoomDefaultEnterCommand.cpp.s
 
+Villager.o: Villager.cpp.o
+.PHONY : Villager.o
+
+# target to build an object file
+Villager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Villager.cpp.o
+.PHONY : Villager.cpp.o
+
+Villager.i: Villager.cpp.i
+.PHONY : Villager.i
+
+# target to preprocess a source file
+Villager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Villager.cpp.i
+.PHONY : Villager.cpp.i
+
+Villager.s: Villager.cpp.s
+.PHONY : Villager.s
+
+# target to generate assembly for a file
+Villager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/Villager.cpp.s
+.PHONY : Villager.cpp.s
+
+WoundedDeer.o: WoundedDeer.cpp.o
+.PHONY : WoundedDeer.o
+
+# target to build an object file
+WoundedDeer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o
+.PHONY : WoundedDeer.cpp.o
+
+WoundedDeer.i: WoundedDeer.cpp.i
+.PHONY : WoundedDeer.i
+
+# target to preprocess a source file
+WoundedDeer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.i
+.PHONY : WoundedDeer.cpp.i
+
+WoundedDeer.s: WoundedDeer.cpp.s
+.PHONY : WoundedDeer.s
+
+# target to generate assembly for a file
+WoundedDeer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.s
+.PHONY : WoundedDeer.cpp.s
+
 ZOOrkEngine.o: ZOOrkEngine.cpp.o
 .PHONY : ZOOrkEngine.o
 
@@ -477,6 +573,9 @@ help:
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"
+	@echo "... Enemy.o"
+	@echo "... Enemy.i"
+	@echo "... Enemy.s"
 	@echo "... GameObject.o"
 	@echo "... GameObject.i"
 	@echo "... GameObject.s"
@@ -486,6 +585,9 @@ help:
 	@echo "... Location.o"
 	@echo "... Location.i"
 	@echo "... Location.s"
+	@echo "... Merchant.o"
+	@echo "... Merchant.i"
+	@echo "... Merchant.s"
 	@echo "... NullCommand.o"
 	@echo "... NullCommand.i"
 	@echo "... NullCommand.s"
@@ -510,6 +612,12 @@ help:
 	@echo "... RoomDefaultEnterCommand.o"
 	@echo "... RoomDefaultEnterCommand.i"
 	@echo "... RoomDefaultEnterCommand.s"
+	@echo "... Villager.o"
+	@echo "... Villager.i"
+	@echo "... Villager.s"
+	@echo "... WoundedDeer.o"
+	@echo "... WoundedDeer.i"
+	@echo "... WoundedDeer.s"
 	@echo "... ZOOrkEngine.o"
 	@echo "... ZOOrkEngine.i"
 	@echo "... ZOOrkEngine.s"

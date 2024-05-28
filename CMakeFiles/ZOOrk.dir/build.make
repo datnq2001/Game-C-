@@ -265,6 +265,62 @@ CMakeFiles/ZOOrk.dir/NullPassage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZOOrk.dir/NullPassage.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/datnq2001/Downloads/ZOOrk/NullPassage.cpp -o CMakeFiles/ZOOrk.dir/NullPassage.cpp.s
 
+CMakeFiles/ZOOrk.dir/Enemy.cpp.o: CMakeFiles/ZOOrk.dir/flags.make
+CMakeFiles/ZOOrk.dir/Enemy.cpp.o: Enemy.cpp
+CMakeFiles/ZOOrk.dir/Enemy.cpp.o: CMakeFiles/ZOOrk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ZOOrk.dir/Enemy.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZOOrk.dir/Enemy.cpp.o -MF CMakeFiles/ZOOrk.dir/Enemy.cpp.o.d -o CMakeFiles/ZOOrk.dir/Enemy.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Enemy.cpp
+
+CMakeFiles/ZOOrk.dir/Enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZOOrk.dir/Enemy.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/datnq2001/Downloads/ZOOrk/Enemy.cpp > CMakeFiles/ZOOrk.dir/Enemy.cpp.i
+
+CMakeFiles/ZOOrk.dir/Enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZOOrk.dir/Enemy.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/datnq2001/Downloads/ZOOrk/Enemy.cpp -o CMakeFiles/ZOOrk.dir/Enemy.cpp.s
+
+CMakeFiles/ZOOrk.dir/Merchant.cpp.o: CMakeFiles/ZOOrk.dir/flags.make
+CMakeFiles/ZOOrk.dir/Merchant.cpp.o: Merchant.cpp
+CMakeFiles/ZOOrk.dir/Merchant.cpp.o: CMakeFiles/ZOOrk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ZOOrk.dir/Merchant.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZOOrk.dir/Merchant.cpp.o -MF CMakeFiles/ZOOrk.dir/Merchant.cpp.o.d -o CMakeFiles/ZOOrk.dir/Merchant.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Merchant.cpp
+
+CMakeFiles/ZOOrk.dir/Merchant.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZOOrk.dir/Merchant.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/datnq2001/Downloads/ZOOrk/Merchant.cpp > CMakeFiles/ZOOrk.dir/Merchant.cpp.i
+
+CMakeFiles/ZOOrk.dir/Merchant.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZOOrk.dir/Merchant.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/datnq2001/Downloads/ZOOrk/Merchant.cpp -o CMakeFiles/ZOOrk.dir/Merchant.cpp.s
+
+CMakeFiles/ZOOrk.dir/Villager.cpp.o: CMakeFiles/ZOOrk.dir/flags.make
+CMakeFiles/ZOOrk.dir/Villager.cpp.o: Villager.cpp
+CMakeFiles/ZOOrk.dir/Villager.cpp.o: CMakeFiles/ZOOrk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ZOOrk.dir/Villager.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZOOrk.dir/Villager.cpp.o -MF CMakeFiles/ZOOrk.dir/Villager.cpp.o.d -o CMakeFiles/ZOOrk.dir/Villager.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Villager.cpp
+
+CMakeFiles/ZOOrk.dir/Villager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZOOrk.dir/Villager.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/datnq2001/Downloads/ZOOrk/Villager.cpp > CMakeFiles/ZOOrk.dir/Villager.cpp.i
+
+CMakeFiles/ZOOrk.dir/Villager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZOOrk.dir/Villager.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/datnq2001/Downloads/ZOOrk/Villager.cpp -o CMakeFiles/ZOOrk.dir/Villager.cpp.s
+
+CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o: CMakeFiles/ZOOrk.dir/flags.make
+CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o: WoundedDeer.cpp
+CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o: CMakeFiles/ZOOrk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o -MF CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o.d -o CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp
+
+CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp > CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.i
+
+CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp -o CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.s
+
 # Object files for target ZOOrk
 ZOOrk_OBJECTS = \
 "CMakeFiles/ZOOrk.dir/main.cpp.o" \
@@ -280,7 +336,11 @@ ZOOrk_OBJECTS = \
 "CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.o" \
 "CMakeFiles/ZOOrk.dir/ZOOrkEngine.cpp.o" \
 "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o" \
-"CMakeFiles/ZOOrk.dir/NullPassage.cpp.o"
+"CMakeFiles/ZOOrk.dir/NullPassage.cpp.o" \
+"CMakeFiles/ZOOrk.dir/Enemy.cpp.o" \
+"CMakeFiles/ZOOrk.dir/Merchant.cpp.o" \
+"CMakeFiles/ZOOrk.dir/Villager.cpp.o" \
+"CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o"
 
 # External object files for target ZOOrk
 ZOOrk_EXTERNAL_OBJECTS =
@@ -299,9 +359,13 @@ ZOOrk: CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.o
 ZOOrk: CMakeFiles/ZOOrk.dir/ZOOrkEngine.cpp.o
 ZOOrk: CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o
 ZOOrk: CMakeFiles/ZOOrk.dir/NullPassage.cpp.o
+ZOOrk: CMakeFiles/ZOOrk.dir/Enemy.cpp.o
+ZOOrk: CMakeFiles/ZOOrk.dir/Merchant.cpp.o
+ZOOrk: CMakeFiles/ZOOrk.dir/Villager.cpp.o
+ZOOrk: CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o
 ZOOrk: CMakeFiles/ZOOrk.dir/build.make
 ZOOrk: CMakeFiles/ZOOrk.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable ZOOrk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/datnq2001/Downloads/ZOOrk/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable ZOOrk"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ZOOrk.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

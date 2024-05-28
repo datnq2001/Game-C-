@@ -17,6 +17,9 @@ public:
 
 private:
     bool gameOver = false;
+    bool deerFound = false;
+    bool mushroomFound = false;
+    bool keyTaken = false;
     Player *player;
     std::shared_ptr<Room> startRoom;
     std::shared_ptr<Room> magicForest;
@@ -29,7 +32,9 @@ private:
     void handleUseCommand(std::vector<std::string>);
     void handleLiftCommand(std::vector<std::string>);
     void handleOpenCommand(std::vector<std::string>);
-    void handleInteractCommand(std::vector<std::string>); // Thêm khai báo cho phương thức handleInteractCommand
+    void handleInteractCommand(std::vector<std::string>);
+    void handleFeedCommand(std::vector<std::string>); 
+    void handleClimbCommand(std::vector<std::string>);
     void handleQuitCommand(std::vector<std::string>);
 
     static std::vector<std::string> tokenizeString(const std::string&);

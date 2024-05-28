@@ -68,6 +68,10 @@ std::shared_ptr<Character> Room::getCharacter(const std::string &characterName) 
     return it != characters.end() ? *it : nullptr;
 }
 
+std::vector<std::shared_ptr<Character>> Room::getCharacters() const {
+    return characters;
+}
+
 void Room::pickUpPlant() {
     if (!plantMoved) {
         auto key = std::make_shared<Key>("key", "A small rusty key.");

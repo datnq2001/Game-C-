@@ -32,4 +32,12 @@ add_executable(ZOOrk
     PassageDefaultEnterCommand.h
     NullPassage.cpp
     NullPassage.h
+    Enemy.cpp      # Add this line
+    Enemy.h
+    Merchant.cpp   # Add this line
+    Merchant.h
+    Villager.cpp   # Add this line
+    Villager.h
+    WoundedDeer.cpp
+    WoundedDeer.h
 )

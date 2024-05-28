@@ -890,4 +890,8 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: \
   /Users/datnq2001/Downloads/ZOOrk/Player.h \
   /Users/datnq2001/Downloads/ZOOrk/ZOOrkEngine.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/sstream \
-  /Users/datnq2001/Downloads/ZOOrk/Key.h
+  /Users/datnq2001/Downloads/ZOOrk/Key.h \
+  /Users/datnq2001/Downloads/ZOOrk/Enemy.h \
+  /Users/datnq2001/Downloads/ZOOrk/Merchant.h \
+  /Users/datnq2001/Downloads/ZOOrk/Villager.h \
+  /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.h
