@@ -1,5 +1,7 @@
 #include "ZOOrkEngine.h"
 #include "Mushroom.h"
+#include "Merchant.h"
+#include "FairyFlower.h"
 #include <utility>
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start, std::shared_ptr<Room> magic_forest)
@@ -42,8 +44,14 @@ void ZOOrkEngine::run() {
             handleFeedCommand(arguments);
         } else if (command == "climb") {
             handleClimbCommand(arguments);
+        } else if (command == "buy") {
+            handleBuyCommand(arguments); // New command to handle buying items
+        } else if (command == "sell") {
+            handleSellCommand(arguments); // New command to handle selling items
         } else if (command == "quit") {
             handleQuitCommand(arguments);
+        } else if (command == "checkgold") {
+            handleCheckGoldCommand(arguments); // New command to check gold
         } else {
             std::cout << "I don't understand that command.\n";
         }
@@ -135,7 +143,6 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     // }
 }
 
-
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     if (arguments.empty()) {
         std::cout << "Take what?\n";
@@ -166,7 +173,6 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
         std::cout << "There is no " << arguments[0] << " here.\n";
     }
 }
-
 
 void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments) {
     if (arguments.empty()) {
@@ -284,12 +290,16 @@ void ZOOrkEngine::handleFeedCommand(std::vector<std::string> arguments) {
         player->removeItem(itemName);
         mushroomFound = false; // Reset trạng thái tìm nấm
         std::cout << "The deer recovers and thanks you. It gives you a fairy flower as a token of gratitude.\n";
-        auto fairyFlower = std::make_shared<Item>("fairy-flower", "A beautiful flower given by the deer.");
+        auto fairyFlower = std::make_shared<FairyFlower>("fairy-flower", "A beautiful flower given by the deer.", 1, 199);
         player->addItem(fairyFlower);
+
+        // Remove the deer from the current room
+        player->getCurrentRoom()->removeCharacter(characterName);
     } else {
         std::cout << "You can't feed that.\n";
     }
 }
+
 
 void ZOOrkEngine::handleClimbCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
@@ -300,6 +310,41 @@ void ZOOrkEngine::handleClimbCommand(std::vector<std::string> arguments) {
         std::cout << "You can't climb here.\n";
     }
 }
+
+void ZOOrkEngine::handleBuyCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Buy what?\n";
+        return;
+    }
+
+    std::string itemName = arguments[0];
+    auto merchant = std::dynamic_pointer_cast<Merchant>(player->getCurrentRoom()->getCharacter("merchant"));
+    if (merchant) {
+        merchant->sellItem(itemName, player);
+    } else {
+        std::cout << "There is no merchant here.\n";
+    }
+}
+
+void ZOOrkEngine::handleCheckGoldCommand(std::vector<std::string> arguments) {
+    std::cout << "You have " << player->getGold() << " gold.\n";
+}
+
+void ZOOrkEngine::handleSellCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Sell what?\n";
+        return;
+    }
+
+    std::string itemName = arguments[0];
+    auto merchant = std::dynamic_pointer_cast<Merchant>(player->getCurrentRoom()->getCharacter("merchant"));
+    if (merchant) {
+        merchant->buyItemFromPlayer(itemName, player);
+    } else {
+        std::cout << "There is no merchant here.\n";
+    }
+}
+
 
 void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments) {
     std::string input;

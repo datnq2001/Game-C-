@@ -40,4 +40,5 @@ add_executable(ZOOrk
     Villager.h
     WoundedDeer.cpp
     WoundedDeer.h
+    FairyFlower.h
 )

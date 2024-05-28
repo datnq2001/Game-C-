@@ -8,6 +8,7 @@
 #include "Merchant.h"
 #include "Villager.h"
 #include "WoundedDeer.h"
+#include "FairyFlower.h"
 
 int main() {
     // Các phòng ban đầu
@@ -59,8 +60,6 @@ int main() {
     magic_forest->addCharacter(std::make_shared<WoundedDeer>("deer", "A deer that is severely wounded and lying on the ground."));
     ancient_temple->addCharacter(std::make_shared<Merchant>("merchant", "A merchant with various goods."));
     abandoned_village->addCharacter(std::make_shared<Villager>("villager", "A lonely villager looking for help."));
-    // std::shared_ptr<Character> wounded_deer = std::make_shared<Character>("wounded-deer", "A deer that is severely wounded and lying on the ground.");
-    // magic_forest->addCharacter(wounded_deer);
 
     // Khóa cửa của start-room ban đầu
     start->setLocked(true);

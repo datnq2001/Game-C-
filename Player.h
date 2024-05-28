@@ -38,6 +38,10 @@ public:
     // Override the interact method from Character class
     void interact() override;
 
+    void addGold(int amount);
+    void removeGold(int amount);
+    int getGold() const;
+
     // Delete copy constructor and assignment operator
     Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;
@@ -45,12 +49,12 @@ public:
 private:
     static Player *playerInstance;
     Room* currentRoom;
+    int gold;
 
-    // Private constructor for singleton pattern
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."),
-               currentRoom(new NullRoom()) {}
+               currentRoom(new NullRoom()), gold(1000) {}
 
-    std::vector<std::shared_ptr<Item>> inventory;  // Player's inventory
+    std::vector<std::shared_ptr<Item>> inventory;
 };
 
 #endif //ZOORK_PLAYER_H

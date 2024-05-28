@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Location.h"
 #include "Passage.h"
+#include "Merchant.h"
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -38,6 +39,9 @@ private:
     void handleInteractCommand(std::vector<std::string>);
     void handleFeedCommand(std::vector<std::string>); 
     void handleClimbCommand(std::vector<std::string>);
+    void handleBuyCommand(std::vector<std::string>); 
+    void handleSellCommand(std::vector<std::string>); // New method to sell items
+    void handleCheckGoldCommand(std::vector<std::string>); // New method to check gold
     void handleQuitCommand(std::vector<std::string>);
 
     static std::vector<std::string> tokenizeString(const std::string&);
