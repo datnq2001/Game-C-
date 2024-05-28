@@ -41,7 +41,7 @@ private:
     void handleClimbCommand(std::vector<std::string>);
     void handleBuyCommand(std::vector<std::string>); 
     void handleSellCommand(std::vector<std::string>); // New method to sell items
-    void handleCheckGoldCommand(std::vector<std::string>); // New method to check gold
+    void handleCheckInfoCommand(std::vector<std::string>); // New method to check gold
     void handleQuitCommand(std::vector<std::string>);
 
     static std::vector<std::string> tokenizeString(const std::string&);

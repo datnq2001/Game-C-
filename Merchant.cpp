@@ -55,10 +55,7 @@ void Merchant::sellItem(const std::string &itemName, Player *player) {
             player->removeGold(item->getPrice());
             player->addItem(item);
             std::cout << "You bought " << item->getName() << " for " << item->getPrice() << "G.\n";
-            if (auto weapon = std::dynamic_pointer_cast<Weapon>(item)) {
-                item->setQuantity(1); // Only one weapon can be bought
-                item->setBought(true);
-            }
+            item->setBought(true);
         } else {
             std::cout << "You don't have enough gold to buy " << item->getName() << ".\n";
         }

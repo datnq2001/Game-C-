@@ -1,5 +1,8 @@
 #include "Player.h"
+#include "Weapon.h"
+#include "HealthPotion.h"
 #include <iostream>
+#include <algorithm>
 
 Player *Player::playerInstance = nullptr;
 
@@ -23,13 +26,23 @@ void Player::addItem(std::shared_ptr<Item> item) {
 
 void Player::removeItem(const std::string& itemName) {
     inventory.erase(std::remove_if(inventory.begin(), inventory.end(),
-                   [&itemName](const std::shared_ptr<Item>& item) { return item->getName() == itemName; }),
+                   [&itemName](const std::shared_ptr<Item>& item) { 
+                       std::string lowerItemName = item->getName();
+                       std::transform(lowerItemName.begin(), lowerItemName.end(), lowerItemName.begin(), ::tolower);
+                       return lowerItemName == itemName; 
+                   }),
                    inventory.end());
 }
 
 std::shared_ptr<Item> Player::getItem(const std::string& itemName) const {
+    std::string lowerInputName = itemName;
+    std::transform(lowerInputName.begin(), lowerInputName.end(), lowerInputName.begin(), ::tolower);
     auto it = std::find_if(inventory.begin(), inventory.end(),
-                [&itemName](const std::shared_ptr<Item>& item) { return item->getName() == itemName; });
+                [&lowerInputName](const std::shared_ptr<Item>& item) { 
+                    std::string lowerItemName = item->getName();
+                    std::transform(lowerItemName.begin(), lowerItemName.end(), lowerItemName.begin(), ::tolower);
+                    return lowerItemName == lowerInputName; 
+                });
     return it != inventory.end() ? *it : nullptr;
 }
 
@@ -55,7 +68,15 @@ void Player::listInventory() const {
 void Player::useItem(const std::string& itemName) {
     auto item = getItem(itemName);
     if (item) {
+        if (auto weapon = std::dynamic_pointer_cast<Weapon>(item)) {
+            attack += weapon->getAttack();
+            std::cout << "Your attack increased to " << attack << ".\n";
+        } else if (auto potion = std::dynamic_pointer_cast<HealthPotion>(item)) {
+            health += potion->getHealAmount();
+            std::cout << "You regained health. Current health: " << health << ".\n";
+        }
         item->use();
+        removeItem(itemName);
     } else {
         std::cout << "You don't have " << itemName << ".\n";
     }
@@ -88,4 +109,24 @@ void Player::removeGold(int amount) {
 
 int Player::getGold() const {
     return gold;
+}
+
+void Player::addHealth(int amount) {
+    health += amount;
+}
+
+void Player::reduceHealth(int amount) {
+    health -= amount;
+    if (health <= 0) {
+        std::cout << "You have died. Game over.\n";
+        exit(0); // Kết thúc trò chơi
+    }
+}
+
+int Player::getHealth() const {
+    return health;
+}
+
+int Player::getAttack() const {
+    return attack;
 }

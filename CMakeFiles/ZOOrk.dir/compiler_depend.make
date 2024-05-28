@@ -10291,13 +10291,15 @@ CMakeFiles/ZOOrk.dir/Player.cpp.o: Player.cpp \
   Character.h \
   Command.h \
   GameObject.h \
+  HealthPotion.h \
   Item.h \
   Location.h \
   NullCommand.h \
   NullRoom.h \
   Player.h \
   Room.h \
-  RoomDefaultEnterCommand.h
+  RoomDefaultEnterCommand.h \
+  Weapon.h
 
 CMakeFiles/ZOOrk.dir/Room.cpp.o: Room.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/Availability.h \

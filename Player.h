@@ -5,11 +5,11 @@
 #include "Location.h"
 #include "NullRoom.h"
 #include <vector>
+#include <memory>
 
 class Player : public Character {
 public:
     static Player *instance() {
-        // Lazy instantiation of the singleton Player object
         if (!playerInstance) {
             playerInstance = new Player();
         }
@@ -20,27 +20,25 @@ public:
 
     Room* getCurrentRoom() const;
 
-    // Methods to manage the player's inventory
     void addItem(std::shared_ptr<Item> item);
     void removeItem(const std::string& itemName);
     std::shared_ptr<Item> getItem(const std::string& itemName) const;
     std::shared_ptr<Item> retrieveItem(const std::string& itemName);
     
-    // Method to list all items in the inventory
     void listInventory() const;
-
-    // Method to use an item from the inventory
     void useItem(const std::string& itemName);
 
-    // Method to interact with a character
     void interactWithCharacter(const std::string& characterName);
-
-    // Override the interact method from Character class
     void interact() override;
 
     void addGold(int amount);
     void removeGold(int amount);
     int getGold() const;
+
+    void addHealth(int amount);
+    void reduceHealth(int amount);
+    int getHealth() const;
+    int getAttack() const;
 
     // Delete copy constructor and assignment operator
     Player(const Player &) = delete;
@@ -50,9 +48,11 @@ private:
     static Player *playerInstance;
     Room* currentRoom;
     int gold;
+    int health;
+    int attack;
 
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."),
-               currentRoom(new NullRoom()), gold(1000) {}
+               currentRoom(new NullRoom()), gold(1000), health(200), attack(5) {}
 
     std::vector<std::shared_ptr<Item>> inventory;
 };

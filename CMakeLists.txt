@@ -41,4 +41,6 @@ add_executable(ZOOrk
     WoundedDeer.cpp
     WoundedDeer.h
     FairyFlower.h
+    Weapon.h
+    HealthPotion.h
 )

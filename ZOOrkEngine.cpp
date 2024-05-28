@@ -50,8 +50,8 @@ void ZOOrkEngine::run() {
             handleSellCommand(arguments); // New command to handle selling items
         } else if (command == "quit") {
             handleQuitCommand(arguments);
-        } else if (command == "checkgold") {
-            handleCheckGoldCommand(arguments); // New command to check gold
+        } else if (command == "check-info") {
+            handleCheckInfoCommand(arguments); // New command to check gold
         } else {
             std::cout << "I don't understand that command.\n";
         }
@@ -326,8 +326,10 @@ void ZOOrkEngine::handleBuyCommand(std::vector<std::string> arguments) {
     }
 }
 
-void ZOOrkEngine::handleCheckGoldCommand(std::vector<std::string> arguments) {
-    std::cout << "You have " << player->getGold() << " gold.\n";
+void ZOOrkEngine::handleCheckInfoCommand(std::vector<std::string> arguments) {
+    std::cout << "Gold: " << player->getGold() << " \n";
+    std::cout << "HP: " << player->getHealth() << "\n";
+    std::cout << "Attack: " << player->getAttack() << "\n";
 }
 
 void ZOOrkEngine::handleSellCommand(std::vector<std::string> arguments) {

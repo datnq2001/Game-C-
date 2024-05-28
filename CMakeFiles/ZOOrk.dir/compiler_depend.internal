@@ -10303,6 +10303,7 @@ CMakeFiles/ZOOrk.dir/Player.cpp.o
  /Users/datnq2001/Downloads/ZOOrk/Character.h
  /Users/datnq2001/Downloads/ZOOrk/Command.h
  /Users/datnq2001/Downloads/ZOOrk/GameObject.h
+ /Users/datnq2001/Downloads/ZOOrk/HealthPotion.h
  /Users/datnq2001/Downloads/ZOOrk/Item.h
  /Users/datnq2001/Downloads/ZOOrk/Location.h
  /Users/datnq2001/Downloads/ZOOrk/NullCommand.h
@@ -10310,6 +10311,7 @@ CMakeFiles/ZOOrk.dir/Player.cpp.o
  /Users/datnq2001/Downloads/ZOOrk/Player.h
  /Users/datnq2001/Downloads/ZOOrk/Room.h
  /Users/datnq2001/Downloads/ZOOrk/RoomDefaultEnterCommand.h
+ /Users/datnq2001/Downloads/ZOOrk/Weapon.h
 
 CMakeFiles/ZOOrk.dir/Room.cpp.o
  /Users/datnq2001/Downloads/ZOOrk/Room.cpp
