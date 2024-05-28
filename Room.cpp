@@ -73,14 +73,21 @@ std::vector<std::shared_ptr<Character>> Room::getCharacters() const {
 }
 
 void Room::pickUpPlant() {
-    if (!plantMoved) {
-        auto key = std::make_shared<Key>("key", "A small rusty key.");
-        addItem(key);
-        std::cout << "You move the plant and find a key underneath it.\n";
-        plantMoved = true;
+    if (name == "south-of-house") {
+        if (!plantMoved) {
+            auto key = std::make_shared<Key>("key", "A small rusty key.", 1, 0); // Giá trị của key là 0G
+            addItem(key);
+            std::cout << "You move the plant and find a key underneath it.\n";
+            plantMoved = true;
+        } else {
+            std::cout << "The plant has already been moved.\n";
+        }
     } else {
-        std::cout << "The plant has already been moved.\n";
+        std::cout << "There is no plant to lift here.\n";
     }
+}
+bool Room::isPlantMoved() const{
+    return plantMoved;
 }
 
 bool Room::isLocked() const {

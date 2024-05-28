@@ -12,8 +12,15 @@ Room* Player::getCurrentRoom() const {
 }
 
 void Player::addItem(std::shared_ptr<Item> item) {
-    // Add item to the player's inventory
-    inventory.push_back(std::move(item));
+    // Check if the item already exists in the inventory
+    auto existingItem = getItem(item->getName());
+    if (existingItem) {
+        // Increase the quantity of the existing item
+        existingItem->setQuantity(existingItem->getQuantity() + item->getQuantity());
+    } else {
+        // Add new item to the inventory
+        inventory.push_back(std::move(item));
+    }
 }
 
 void Player::removeItem(const std::string& itemName) {
@@ -45,7 +52,7 @@ void Player::listInventory() const {
     } else {
         std::cout << "You are carrying:\n";
         for (const auto& item : inventory) {
-            std::cout << "- " << item->getName() << " (x" << item->getQuantity() << ")\n";
+            std::cout << "- " << item->getName() << " (x" << item->getQuantity() << ") price: " << item->getPrice() << "G\n";
         }
     }
 }

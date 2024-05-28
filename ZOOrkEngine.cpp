@@ -72,6 +72,56 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
 
+    // Kiểm tra xem người chơi có chỉ định tên vật phẩm không
+    if (!arguments.empty()) {
+        std::string itemName = arguments[0];
+        // Kiểm tra vật phẩm trong phòng
+        auto item = currentRoom->getItem(itemName);
+        if (item) {
+            std::cout << item->getDescription() << "\n";
+            return;
+        }
+        // Kiểm tra vật phẩm trong inventory của người chơi
+        item = player->getItem(itemName);
+        if (item) {
+            std::cout << item->getDescription() << "\n";
+            return;
+        }
+        std::cout << "There is no " << itemName << " here.\n";
+        return;
+    }
+
+    // Kiểm tra các cảnh vật đặc biệt trước khi hiển thị mô tả phòng
+    if (currentRoom->getName() == "south-of-house" && !plantMoved && !keyTaken) {
+        std::cout << "There is a pot of plant here.\n";
+        return;
+    }
+    else if(currentRoom->getName() == "south-of-house" && plantMoved && !keyTaken){
+        std::cout << "There is a key here.\n";
+        return;
+    }
+    
+    if(currentRoom->getName() == "ancient-tree" && climbTree && !mushroomTaken){
+        std::cout << "There is a bunch of mushroom.\n";
+        mushroomFound = true;
+        return;
+    }if(currentRoom->getName() == "ancient-tree" && climbTree && mushroomTaken){
+        std::cout << "You are on the tree\n";
+        mushroomFound = true;
+        return;
+    }
+
+    if (currentRoom->getName() == "magic-forest" && !deerFound) {
+        std::cout << "Suddenly you hear a rustling sound near a bush nearby. It seems like something is there.\n";
+        deerFound = true;
+        return;
+    }
+
+    if (currentRoom->getName() == "magic-forest" && deerFound && !mushroomFound) {
+        std::cout << "You see a wounded deer lying near the bush. It looks like it needs help.\n";
+        return;
+    }
+
     // Hiển thị mô tả phòng hiện tại
     std::cout << currentRoom->getDescription() << "\n";
 
@@ -83,19 +133,8 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     //         std::cout << "- " << character->getName() << ": " << character->getDescription() << "\n";
     //     }
     // }
-
-    // Hiển thị thông tin chi tiết nếu ở phòng south-of-house
-    if (currentRoom->getName() == "south-of-house") {
-        std::cout << "There is a pot of plant here.\n";
-    }
-
-    if (currentRoom->getName() == "magic-forest" && !deerFound) {
-        std::cout << "Suddenly you hear a rustling sound near a bush nearby. It seems like something is there.\n";
-        deerFound = true;
-    } else if (currentRoom->getName() == "magic-forest" && deerFound && !mushroomFound) {
-        std::cout << "You see a wounded deer lying near the bush. It looks like it needs help.\n";
-    }
 }
+
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     if (arguments.empty()) {
@@ -109,9 +148,9 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     // Đặc biệt xử lý nếu người chơi đang ở ancient-tree và muốn lấy nấm
     if (currentRoom->getName() == "ancient-tree" && itemName == "mushroom") {
         std::cout << "You take the healing mushroom from the ancient tree.\n";
-        auto mushroom = std::make_shared<Mushroom>("mushroom", "A mushroom with healing properties.");
+        auto mushroom = std::make_shared<Mushroom>("mushroom", "A mushroom with healing properties.", 1, 3);
         player->addItem(mushroom);
-        mushroomFound = true;
+        mushroomTaken = true;
         return;
     }
 
@@ -120,10 +159,14 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     if (item) {
         player->addItem(item);
         std::cout << "You take the " << item->getName() << ".\n";
+        if (itemName == "key") {
+            keyTaken = true; // Đánh dấu key đã được lấy
+        }
     } else {
         std::cout << "There is no " << arguments[0] << " here.\n";
     }
 }
+
 
 void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments) {
     if (arguments.empty()) {
@@ -186,6 +229,7 @@ void ZOOrkEngine::handleLiftCommand(std::vector<std::string> arguments) {
     if (arguments[0] == "plant") {
         Room* currentRoom = player->getCurrentRoom();
         currentRoom->pickUpPlant();
+        plantMoved = currentRoom->isPlantMoved();
     } else {
         std::cout << "You can't lift that.\n";
     }
@@ -250,8 +294,8 @@ void ZOOrkEngine::handleFeedCommand(std::vector<std::string> arguments) {
 void ZOOrkEngine::handleClimbCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
     if (currentRoom->getName() == "ancient-tree") {
-        std::cout << "You climb up the ancient tree and find a healing mushroom.\n";
-        mushroomFound = true;
+        std::cout << "You climb up the ancient tree. \n";
+        climbTree = true;
     } else {
         std::cout << "You can't climb here.\n";
     }

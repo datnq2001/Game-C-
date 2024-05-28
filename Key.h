@@ -5,7 +5,7 @@
 
 class Key : public Item {
 public:
-    Key(const std::string &n, const std::string &d, int quantity = 1) : Item(n, d, quantity) {}
+    Key(const std::string &n, const std::string &d, int quantity = 1, int price = 0) : Item(n, d, quantity, price) {}
 };
 
 #endif //ZOORK_KEY_H

@@ -40,6 +40,8 @@ public:
 
     void pickUpPlant();
 
+    bool isPlantMoved() const;
+
     bool isLocked() const;
     void setLocked(bool locked);
 

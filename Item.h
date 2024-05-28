@@ -7,9 +7,9 @@
 
 class Item : public GameObject {
 public:
-    Item(const std::string &, const std::string &, int quantity = 1);
+    Item(const std::string &, const std::string &, int quantity = 1, int price = 0);
 
-    Item(const std::string &, const std::string &, std::shared_ptr<Command>, int quantity = 1);
+    Item(const std::string &, const std::string &, std::shared_ptr<Command>, int quantity = 1, int price = 0);
 
     virtual void use();
 
@@ -19,9 +19,13 @@ public:
     void setQuantity(int quantity);
     void decreaseQuantity();
 
+    int getPrice() const; // New method to get the price
+    void setPrice(int price); // New method to set the price
+
 protected:
     std::shared_ptr<Command> useCommand;
     int quantity;
+    int price; // New attribute for the price
 };
 
 #endif //ZOORK_ITEM_H

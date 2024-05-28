@@ -19,7 +19,10 @@ private:
     bool gameOver = false;
     bool deerFound = false;
     bool mushroomFound = false;
+    bool mushroomTaken = false;
     bool keyTaken = false;
+    bool plantMoved = false;
+    bool climbTree = false;
     Player *player;
     std::shared_ptr<Room> startRoom;
     std::shared_ptr<Room> magicForest;
