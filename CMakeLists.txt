@@ -43,4 +43,5 @@ add_executable(ZOOrk
     FairyFlower.h
     Weapon.h
     HealthPotion.h
+    Door.h
 )

@@ -10,6 +10,13 @@ class Character : public GameObject {
 public:
     Character(const std::string &, const std::string &);
 
+    // Phương thức công khai để truy cập và thay đổi health
+    int getHealth() const;
+    void setHealth(int health);
+
+    // Phương thức công khai để truy cập attack
+    int getAttack() const;
+
     virtual void interact() = 0;
 
 protected:

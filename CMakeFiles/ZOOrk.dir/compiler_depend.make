@@ -8510,6 +8510,7 @@ CMakeFiles/ZOOrk.dir/Passage.cpp.o: Passage.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   Character.h \
   Command.h \
+  Door.h \
   GameObject.h \
   Item.h \
   Location.h \
@@ -8517,6 +8518,7 @@ CMakeFiles/ZOOrk.dir/Passage.cpp.o: Passage.cpp \
   NullRoom.h \
   Passage.h \
   PassageDefaultEnterCommand.h \
+  Player.h \
   Room.h \
   RoomDefaultEnterCommand.h
 
@@ -10290,6 +10292,7 @@ CMakeFiles/ZOOrk.dir/Player.cpp.o: Player.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   Character.h \
   Command.h \
+  Enemy.h \
   GameObject.h \
   HealthPotion.h \
   Item.h \
@@ -15513,6 +15516,7 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: main.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   Character.h \
   Command.h \
+  Door.h \
   Enemy.h \
   FairyFlower.h \
   GameObject.h \
@@ -15544,6 +15548,8 @@ ZOOrkEngine.cpp:
 Villager.h:
 
 Player.cpp:
+
+Door.h:
 
 Passage.cpp:
 

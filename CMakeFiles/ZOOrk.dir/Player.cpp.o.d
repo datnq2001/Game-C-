@@ -888,4 +888,5 @@ CMakeFiles/ZOOrk.dir/Player.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/unary_negate.h \
   /Users/datnq2001/Downloads/ZOOrk/Weapon.h \
-  /Users/datnq2001/Downloads/ZOOrk/HealthPotion.h
+  /Users/datnq2001/Downloads/ZOOrk/HealthPotion.h \
+  /Users/datnq2001/Downloads/ZOOrk/Enemy.h

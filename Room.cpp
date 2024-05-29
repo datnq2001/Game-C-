@@ -2,6 +2,7 @@
 #include "NullPassage.h"
 #include "RoomDefaultEnterCommand.h"
 #include "Key.h"
+#include "Enemy.h"
 
 Room::Room(const std::string &n, const std::string &d) : Location(n, d) {
     enterCommand = std::make_shared<RoomDefaultEnterCommand>(this);
@@ -77,7 +78,7 @@ void Room::pickUpPlant() {
         if (!plantMoved) {
             auto key = std::make_shared<Key>("key", "A small rusty key.", 1, 0); // Giá trị của key là 0G
             addItem(key);
-            std::cout << "You move the plant and find a key underneath it.\n";
+            std::cout << "You move the plant and find a key underneath it.\n\n";
             plantMoved = true;
         } else {
             std::cout << "The plant has already been moved.\n";
@@ -93,7 +94,11 @@ bool Room::isPlantMoved() const{
 bool Room::isLocked() const {
     return locked;
 }
-
+void Room::initializeGoblins() {
+    addCharacter(std::make_shared<Enemy>("goblin", "A menacing goblin.", 100, 20));
+    goblinsInitialized = true;
+    std::cout << "A mob of many hostile goblins have appeared in the dark cave!\n";
+}  
 void Room::setLocked(bool locked) {
     this->locked = locked;
 }

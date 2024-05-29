@@ -34,18 +34,20 @@ private:
     void handleTakeCommand(std::vector<std::string>);
     void handleDropCommand(std::vector<std::string>);
     void handleInventoryCommand(std::vector<std::string>);
+    void handleEquipmentCommand(std::vector<std::string>);
     void handleUseCommand(std::vector<std::string>);
+    void handleUnattachCommand(std::vector<std::string>);
     void handleLiftCommand(std::vector<std::string>);
     void handleOpenCommand(std::vector<std::string>);
     void handleInteractCommand(std::vector<std::string>);
-    void handleFeedCommand(std::vector<std::string>); 
+    void handleFeedCommand(std::vector<std::string>);
     void handleClimbCommand(std::vector<std::string>);
-    void handleBuyCommand(std::vector<std::string>); 
-    void handleSellCommand(std::vector<std::string>); // New method to sell items
-    void handleCheckInfoCommand(std::vector<std::string>); // New method to check gold
+    void handleBuyCommand(std::vector<std::string>);
+    void handleSellCommand(std::vector<std::string>);
+    void handleAttackCommand(std::vector<std::string>);
     void handleQuitCommand(std::vector<std::string>);
-    void handleUnattachCommand(std::vector<std::string>);
-    void handleEquipmentCommand(std::vector<std::string>);
+    void handleCheckInfoCommand(std::vector<std::string>);
+
     static std::vector<std::string> tokenizeString(const std::string&);
     static std::string makeLowercase(std::string);
 };

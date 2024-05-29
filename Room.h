@@ -44,6 +44,8 @@ public:
 
     bool isLocked() const;
     void setLocked(bool locked);
+    void initializeGoblins();
+    int getGoblinCount() const;
 
 protected:
     std::vector<std::shared_ptr<Item>> items;
@@ -51,6 +53,7 @@ protected:
     std::map<std::string, std::shared_ptr<Passage>> passageMap;
     bool plantMoved = false;
     bool locked = false;  // Cờ để xác định phòng có bị khóa hay không
+    bool goblinsInitialized = false;
 };
 
 #endif //ZOORK_ROOM_H

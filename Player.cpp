@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Weapon.h"
 #include "HealthPotion.h"
+#include "Enemy.h"
 #include <iostream>
 #include <algorithm>
 
@@ -45,6 +46,7 @@ std::shared_ptr<Item> Player::getItem(const std::string& itemName) const {
                 });
     return it != inventory.end() ? *it : nullptr;
 }
+
 std::shared_ptr<Item> Player::getEquipmentItem(const std::string& itemName) const {
     std::string lowerInputName = itemName;
     std::transform(lowerInputName.begin(), lowerInputName.end(), lowerInputName.begin(), ::tolower);
@@ -56,6 +58,7 @@ std::shared_ptr<Item> Player::getEquipmentItem(const std::string& itemName) cons
                 });
     return it != equipment.end() ? *it : nullptr;
 }
+
 std::shared_ptr<Item> Player::retrieveItem(const std::string& itemName) {
     auto item = getItem(itemName);
     if (item) {
@@ -141,6 +144,24 @@ void Player::interact() {
     std::cout << "You can't interact with yourself.\n";
 }
 
+void Player::attackEnemy(std::shared_ptr<Character> target) {
+    if (target) {
+        target->setHealth(target->getHealth() - attack);
+        std::cout << "You attack " << target->getName() << " for " << attack << " damage.\n";
+        if (target->getHealth() <= 0) {
+            std::cout << target->getName() << " has been defeated!\nYou gain 5 Gold and 20EXP\n";
+            currentRoom->removeCharacter(target->getName());
+            currentRoom->addCharacter(std::make_shared<Enemy>("goblin", "A menacing goblin.", 100, 20));
+            addExperience(20); // Example: Gain 20 EXP for defeating an enemy
+            addGold(20); // Example: Gain 20 gold for defeating an enemy
+        } else {
+            std::cout << target->getName() << " has " << target->getHealth() << " health remaining.\n";
+            reduceHealth(target->getAttack());
+            std::cout << "You take " << target->getAttack() << " damage. Your current health: " << health << ".\n";
+        }
+    }
+}
+
 void Player::addGold(int amount) {
     gold += amount;
 }
@@ -165,7 +186,7 @@ void Player::reduceHealth(int amount) {
     health -= amount;
     if (health <= 0) {
         std::cout << "You have died. Game over.\n";
-        exit(0); // Kết thúc trò chơi
+        exit(0);
     }
 }
 
@@ -175,4 +196,31 @@ int Player::getHealth() const {
 
 int Player::getAttack() const {
     return attack;
+}
+
+void Player::addExperience(int amount) {
+    exp += amount;
+    std::cout << "You gained " << amount << " experience points.\n";
+    while (exp >= getNextLevelExperience()) {
+        levelUp();
+    }
+}
+
+void Player::levelUp() {
+    level++;
+    exp = 0;
+    std::cout << "<-----  Congratulations! You reached level " << level << "  ----->\n";
+    // Increase stats or provide other benefits here
+}
+
+int Player::getLevel() const {
+    return level;
+}
+
+int Player::getExperience() const {
+    return exp;
+}
+
+int Player::getNextLevelExperience() const {
+    return 50 * level; // Example formula for next level EXP
 }

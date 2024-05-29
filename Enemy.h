@@ -5,7 +5,7 @@
 
 class Enemy : public Character {
 public:
-    Enemy(const std::string &n, const std::string &d);
+    Enemy(const std::string &n, const std::string &d, int health, int attack);
 
     void interact() override;
 };

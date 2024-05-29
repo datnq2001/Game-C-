@@ -43,6 +43,15 @@ public:
     int getHealth() const;
     int getAttack() const;
 
+    void addExperience(int amount); // New method to add experience points
+    void levelUp(); // New method to handle level up
+    int getLevel() const; // Get current level
+    int getExperience() const; // Get current experience
+    int getNextLevelExperience() const; // Get experience required for next level
+
+
+    void attackEnemy(std::shared_ptr<Character> target);
+    
     // Delete copy constructor and assignment operator
     Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;
@@ -53,9 +62,11 @@ private:
     int gold;
     int health;
     int attack;
+    int level; // New attribute for player level
+    int exp; // New attribute for player experience
 
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."),
-               currentRoom(new NullRoom()), gold(1000), health(200), attack(5) {}
+               currentRoom(new NullRoom()), gold(1000), health(200), attack(5), level(1), exp(0) {}
 
     std::vector<std::shared_ptr<Item>> inventory;
     std::vector<std::shared_ptr<Item>> equipment; // New vector for equipment

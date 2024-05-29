@@ -52,6 +52,8 @@ void ZOOrkEngine::run() {
             handleBuyCommand(arguments); // New command to handle buying items
         } else if (command == "sell") {
             handleSellCommand(arguments); // New command to handle selling items
+        } else if (command == "attack") {
+            handleAttackCommand(arguments); // New command to handle attacking enemies
         } else if (command == "quit") {
             handleQuitCommand(arguments);
         } else if (command == "check-info") {
@@ -61,6 +63,22 @@ void ZOOrkEngine::run() {
         }
     }
 }
+
+void ZOOrkEngine::handleAttackCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Attack whom?\n";
+        return;
+    }
+
+    auto targetName = arguments[0];
+    auto target = player->getCurrentRoom()->getCharacter(targetName);
+    if (target) {
+        player->attackEnemy(target);
+    } else {
+        std::cout << "There is no " << targetName << " here.\n";
+    }
+}
+
 void ZOOrkEngine::handleEquipmentCommand(std::vector<std::string> arguments) {
     player->listEquipment();
 }
@@ -94,6 +112,11 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
 
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     Room* currentRoom = player->getCurrentRoom();
+
+    if (currentRoom->getName() == "dark-cave") {
+        currentRoom->initializeGoblins();
+        return;
+    }
 
     // Kiểm tra xem người chơi có chỉ định tên vật phẩm không
     if (!arguments.empty()) {
@@ -178,7 +201,7 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     auto item = currentRoom->retrieveItem(itemName);
     if (item) {
         player->addItem(item);
-        std::cout << "You take the " << item->getName() << ".\n";
+        std::cout << "You take the " << item->getName() << ".\n\n";
         if (itemName == "key") {
             keyTaken = true;
         }
@@ -223,7 +246,7 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments) {
     if (itemName == "key") {
         Room* currentRoom = player->getCurrentRoom();
         if (currentRoom->getName() == "start-room" && currentRoom->isLocked()) {
-            std::cout << "You use the key to unlock the door.\n";
+            std::cout << "You use the key to unlock the door.\n\n";
             currentRoom->setLocked(false); // Mở khóa cửa
             item->decreaseQuantity();
             if (item->getQuantity() <= 0) {
@@ -264,7 +287,7 @@ void ZOOrkEngine::handleOpenCommand(std::vector<std::string> arguments) {
         if (currentRoom->getName() == "start-room" && !currentRoom->isLocked()) {
             std::cout << "A blinding light engulfs you as you step through the door...\n";
             player->setCurrentRoom(magicForest.get());
-            std::cout << "You wake up in a new world.\n";
+            std::cout << "You wake up in a new world.\n\n";
         } else {
             std::cout << "The door is locked. You need to unlock it first.\n";
         }
@@ -301,7 +324,8 @@ void ZOOrkEngine::handleFeedCommand(std::vector<std::string> arguments) {
         std::cout << "You feed the healing mushroom to the wounded deer.\n";
         player->removeItem(itemName);
         mushroomFound = false; // Reset trạng thái tìm nấm
-        std::cout << "The deer recovers and thanks you. It gives you a fairy flower as a token of gratitude.\n";
+        std::cout << "The deer recovers and thanks you.\nIt gives you a fairy flower as a token of gratitude.\n";
+        player->addExperience(50); // New line to give experience points
         auto fairyFlower = std::make_shared<FairyFlower>("fairy-flower", "A beautiful flower given by the deer.", 1, 199);
         player->addItem(fairyFlower);
 
@@ -343,6 +367,8 @@ void ZOOrkEngine::handleCheckInfoCommand(std::vector<std::string> arguments) {
     std::cout << "Gold: " << player->getGold() << " \n";
     std::cout << "HP: " << player->getHealth() << "\n";
     std::cout << "Attack: " << player->getAttack() << "\n";
+    std::cout << "Level: " << player->getLevel() << "\n"; // New line to show level
+    std::cout << "EXP: " << player->getExperience() << " / " << player->getNextLevelExperience() << "\n"; // New line to show experience
 }
 
 void ZOOrkEngine::handleSellCommand(std::vector<std::string> arguments) {

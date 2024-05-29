@@ -41,8 +41,10 @@ int main() {
 
     std::shared_ptr<Room> dragon_lair = std::make_shared<Room>("dragon-lair",
                                   "You enter the lair of the dragon. The air is hot, and you can see the glint of treasure and the shadow of the dragon lurking in the darkness.\n");
+
     std::shared_ptr<Room> ancient_tree = std::make_shared<Room>("ancient-tree",
                                   "You stand before an ancient tree. \n");
+
     // Tạo các lối đi giữa các phòng
     Passage::createBasicPassage(start.get(), south_of_house.get(), "south", true);
     Passage::createBasicPassage(south_of_house.get(), behind_house.get(), "east", true);

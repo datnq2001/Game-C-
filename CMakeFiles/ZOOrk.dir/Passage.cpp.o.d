@@ -887,4 +887,5 @@ CMakeFiles/ZOOrk.dir/Passage.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/datnq2001/Downloads/ZOOrk/PassageDefaultEnterCommand.h
+  /Users/datnq2001/Downloads/ZOOrk/PassageDefaultEnterCommand.h \
+  /Users/datnq2001/Downloads/ZOOrk/Player.h
