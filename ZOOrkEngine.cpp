@@ -125,7 +125,7 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
         return;
     }
 
-    if (currentRoom->getName() == "magic-forest" && deerFound && !mushroomFound) {
+    if (currentRoom->getName() == "magic-forest" && deerFound && !mushroomFound && !deerFeed) {
         std::cout << "You see a wounded deer lying near the bush. It looks like it needs help.\n";
         return;
     }
@@ -295,6 +295,7 @@ void ZOOrkEngine::handleFeedCommand(std::vector<std::string> arguments) {
 
         // Remove the deer from the current room
         player->getCurrentRoom()->removeCharacter(characterName);
+        deerFeed = true;
     } else {
         std::cout << "You can't feed that.\n";
     }

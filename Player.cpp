@@ -76,7 +76,10 @@ void Player::useItem(const std::string& itemName) {
             std::cout << "You regained health. Current health: " << health << ".\n";
         }
         item->use();
-        removeItem(itemName);
+        item->decreaseQuantity();
+        if (item->getQuantity() <= 0) {
+            removeItem(itemName);
+        }
     } else {
         std::cout << "You don't have " << itemName << ".\n";
     }

@@ -19,6 +19,7 @@ public:
 private:
     bool gameOver = false;
     bool deerFound = false;
+    bool deerFeed = false;
     bool mushroomFound = false;
     bool mushroomTaken = false;
     bool keyTaken = false;
