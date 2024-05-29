@@ -47,8 +47,8 @@ void Merchant::sellItem(const std::string &itemName, Player *player) {
                 });
     if (it != inventory.end()) {
         auto item = *it;
-        if (item->isBought()) {
-            std::cout << "You have already bought " << item->getName() << ".\n";
+        if (player->getItem(itemName) || player->getEquipmentItem(itemName)) {
+            std::cout << "You already have " << item->getName() << " in your inventory.\n";
             return;
         }
         if (player->getGold() >= item->getPrice()) {

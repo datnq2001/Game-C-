@@ -44,7 +44,8 @@ private:
     void handleSellCommand(std::vector<std::string>); // New method to sell items
     void handleCheckInfoCommand(std::vector<std::string>); // New method to check gold
     void handleQuitCommand(std::vector<std::string>);
-
+    void handleUnattachCommand(std::vector<std::string>);
+    void handleEquipmentCommand(std::vector<std::string>);
     static std::vector<std::string> tokenizeString(const std::string&);
     static std::string makeLowercase(std::string);
 };

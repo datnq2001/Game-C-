@@ -45,7 +45,17 @@ std::shared_ptr<Item> Player::getItem(const std::string& itemName) const {
                 });
     return it != inventory.end() ? *it : nullptr;
 }
-
+std::shared_ptr<Item> Player::getEquipmentItem(const std::string& itemName) const {
+    std::string lowerInputName = itemName;
+    std::transform(lowerInputName.begin(), lowerInputName.end(), lowerInputName.begin(), ::tolower);
+    auto it = std::find_if(equipment.begin(), equipment.end(),
+                [&lowerInputName](const std::shared_ptr<Item>& item) { 
+                    std::string lowerItemName = item->getName();
+                    std::transform(lowerItemName.begin(), lowerItemName.end(), lowerItemName.begin(), ::tolower);
+                    return lowerItemName == lowerInputName; 
+                });
+    return it != equipment.end() ? *it : nullptr;
+}
 std::shared_ptr<Item> Player::retrieveItem(const std::string& itemName) {
     auto item = getItem(itemName);
     if (item) {
@@ -65,23 +75,56 @@ void Player::listInventory() const {
     }
 }
 
+void Player::listEquipment() const {
+    if (equipment.empty()) {
+        std::cout << "You have no equipment.\n";
+    } else {
+        std::cout << "Your equipment:\n";
+        for (const auto& item : equipment) {
+            std::cout << "- " << item->getName() << " (Attack: " << item->getAttack() << ")\n";
+        }
+    }
+}
+
 void Player::useItem(const std::string& itemName) {
     auto item = getItem(itemName);
     if (item) {
         if (auto weapon = std::dynamic_pointer_cast<Weapon>(item)) {
             attack += weapon->getAttack();
             std::cout << "Your attack increased to " << attack << ".\n";
+            equipment.push_back(item);  // Add to equipment
+            removeItem(itemName);  // Remove from inventory
         } else if (auto potion = std::dynamic_pointer_cast<HealthPotion>(item)) {
             health += potion->getHealAmount();
             std::cout << "You regained health. Current health: " << health << ".\n";
+            item->decreaseQuantity();
+            if (item->getQuantity() <= 0) {
+                removeItem(itemName);
+            }
         }
         item->use();
-        item->decreaseQuantity();
-        if (item->getQuantity() <= 0) {
-            removeItem(itemName);
-        }
     } else {
         std::cout << "You don't have " << itemName << ".\n";
+    }
+}
+
+void Player::unattachItem(const std::string& itemName) {
+    auto it = std::find_if(equipment.begin(), equipment.end(),
+                [&itemName](const std::shared_ptr<Item>& item) { 
+                    std::string lowerItemName = item->getName();
+                    std::transform(lowerItemName.begin(), lowerItemName.end(), lowerItemName.begin(), ::tolower);
+                    return lowerItemName == itemName; 
+                });
+    if (it != equipment.end()) {
+        auto item = *it;
+        if (auto weapon = std::dynamic_pointer_cast<Weapon>(item)) {
+            attack -= weapon->getAttack();
+            std::cout << "Your attack decreased to " << attack << ".\n";
+            addItem(item);  // Add back to inventory
+            equipment.erase(it);  // Remove from equipment
+        }
+    } else {
+        std::cout << "You don't have " << itemName << " equipped.\n";
     }
 }
 

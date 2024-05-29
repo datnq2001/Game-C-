@@ -32,8 +32,12 @@ void ZOOrkEngine::run() {
             handleDropCommand(arguments);
         } else if (command == "inventory") {
             handleInventoryCommand(arguments);
+        }else if (command == "equipment") {
+            handleEquipmentCommand(arguments); // New command to list equipment
         } else if (command == "use") {
             handleUseCommand(arguments);
+        }else if (command == "unattach") {
+            handleUnattachCommand(arguments);  // New command to handle unattaching items
         } else if (command == "lift") {
             handleLiftCommand(arguments);
         } else if (command == "open") {
@@ -56,6 +60,17 @@ void ZOOrkEngine::run() {
             std::cout << "I don't understand that command.\n";
         }
     }
+}
+void ZOOrkEngine::handleEquipmentCommand(std::vector<std::string> arguments) {
+    player->listEquipment();
+}
+void ZOOrkEngine::handleUnattachCommand(std::vector<std::string> arguments) {
+    if (arguments.empty()) {
+        std::cout << "Unattach what?\n";
+        return;
+    }
+
+    player->unattachItem(arguments[0]);
 }
 
 void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
@@ -152,7 +167,6 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     std::string itemName = arguments[0];
     Room* currentRoom = player->getCurrentRoom();
 
-    // Đặc biệt xử lý nếu người chơi đang ở ancient-tree và muốn lấy nấm
     if (currentRoom->getName() == "ancient-tree" && itemName == "mushroom") {
         std::cout << "You take the healing mushroom from the ancient tree.\n";
         auto mushroom = std::make_shared<Mushroom>("mushroom", "A mushroom with healing properties.", 1, 3);
@@ -161,13 +175,12 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
         return;
     }
 
-    // Retrieve item from the room and add to the player's inventory
-    auto item = currentRoom->retrieveItem(arguments[0]);
+    auto item = currentRoom->retrieveItem(itemName);
     if (item) {
         player->addItem(item);
         std::cout << "You take the " << item->getName() << ".\n";
         if (itemName == "key") {
-            keyTaken = true; // Đánh dấu key đã được lấy
+            keyTaken = true;
         }
     } else {
         std::cout << "There is no " << arguments[0] << " here.\n";
@@ -180,11 +193,10 @@ void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments) {
         return;
     }
 
-    // Retrieve item from the player's inventory and add to the current room
     auto item = player->retrieveItem(arguments[0]);
     if (item) {
         player->getCurrentRoom()->addItem(item);
-        std::cout << "You drop the " << item->getName() << ".\n";
+        std::cout << "You drop the " << item->getName() << " (Quantity: " << item->getQuantity() << ").\n";
     } else {
         std::cout << "You don't have " << arguments[0] << ".\n";
     }

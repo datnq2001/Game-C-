@@ -23,10 +23,13 @@ public:
     void addItem(std::shared_ptr<Item> item);
     void removeItem(const std::string& itemName);
     std::shared_ptr<Item> getItem(const std::string& itemName) const;
+    std::shared_ptr<Item> getEquipmentItem(const std::string& itemName) const;
     std::shared_ptr<Item> retrieveItem(const std::string& itemName);
     
     void listInventory() const;
+    void listEquipment() const; // New method to list equipment
     void useItem(const std::string& itemName);
+    void unattachItem(const std::string& itemName); // New method to unattach item
 
     void interactWithCharacter(const std::string& characterName);
     void interact() override;
@@ -55,6 +58,7 @@ private:
                currentRoom(new NullRoom()), gold(1000), health(200), attack(5) {}
 
     std::vector<std::shared_ptr<Item>> inventory;
+    std::vector<std::shared_ptr<Item>> equipment; // New vector for equipment
 };
 
 #endif //ZOORK_PLAYER_H
