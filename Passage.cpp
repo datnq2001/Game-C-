@@ -48,4 +48,3 @@ void Passage::setTo(Room* r) {
 Room* Passage::getTo() const {
     return toRoom;
 }
-

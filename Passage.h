@@ -7,11 +7,13 @@
 
 class Passage : public Location {
 public:
-    static void createBasicPassage(Room*, Room*, const std::string &, bool);
-
     Passage(const std::string &, const std::string &, Room*, Room*);
 
     Passage(const std::string &, const std::string &, std::shared_ptr<Command>, Room*, Room*);
+
+    static std::string oppositeDirection(const std::string &);
+
+    static void createBasicPassage(Room*, Room*, const std::string &, bool);
 
     void setFrom(Room*);
 
@@ -21,11 +23,7 @@ public:
 
     Room* getTo() const;
 
-   
-
 protected:
-    static std::string oppositeDirection(const std::string &);
-
     Room* fromRoom;
     Room* toRoom;
 

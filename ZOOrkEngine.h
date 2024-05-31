@@ -24,10 +24,11 @@ private:
     bool mushroomTaken = false;
     bool keyTaken = false;
     bool plantMoved = false;
-    bool climbTree = false;
+    // bool climbTree = false;
     Player *player;
     std::shared_ptr<Room> startRoom;
     std::shared_ptr<Room> magicForest;
+    std::shared_ptr<Room> ancientTreeTop;
 
     void handleGoCommand(std::vector<std::string>);
     void handleLookCommand(std::vector<std::string>);
@@ -41,7 +42,6 @@ private:
     void handleOpenCommand(std::vector<std::string>);
     void handleInteractCommand(std::vector<std::string>);
     void handleFeedCommand(std::vector<std::string>);
-    void handleClimbCommand(std::vector<std::string>);
     void handleBuyCommand(std::vector<std::string>);
     void handleSellCommand(std::vector<std::string>);
     void handleAttackCommand(std::vector<std::string>);

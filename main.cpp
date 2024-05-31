@@ -31,8 +31,8 @@ int main() {
     std::shared_ptr<Room> dark_cave = std::make_shared<Room>("dark-cave",
                                   "You enter a dark cave. The air is thick and you can hear the distant sound of dripping water.\n");
 
-    std::shared_ptr<Room> abandoned_village = std::make_shared<Room>("abandoned-village",
-                                  "You walk into an abandoned village. The houses are in ruins, and it feels like no one has lived here for a long time.\n");
+    std::shared_ptr<Room> devastated_village = std::make_shared<Room>("devastated-village",
+                                  "You walk into a devastated village. The houses are in ruins, and it feels like no one has lived here for a long time.\n");
 
     std::shared_ptr<Room> mystic_lake = std::make_shared<Room>("mystic-lake",
                                   "You arrive at a mystic lake. The water glows with a strange light, and you feel an unexplainable power emanating from it.\n");
@@ -44,7 +44,10 @@ int main() {
                                   "You enter the lair of the dragon. The air is hot, and you can see the glint of treasure and the shadow of the dragon lurking in the darkness.\n");
 
     std::shared_ptr<Room> ancient_tree = std::make_shared<Room>("ancient-tree",
-                                  "You stand before an ancient tree. \n");
+                                  "You stand before an ancient tree.\n");
+
+    std::shared_ptr<Room> ancient_tree_top = std::make_shared<Room>("ancient-tree-top",
+                                  "You are on top of the ancient tree. You can see the whole forest from here.\n");
 
     // Tạo các lối đi giữa các phòng
     Passage::createBasicPassage(start.get(), south_of_house.get(), "south", true);
@@ -55,16 +58,19 @@ int main() {
     magic_forest->addPassage("west", doorToAncientTemple);
 
     Passage::createBasicPassage(magic_forest.get(), ancient_tree.get(), "east", true);
-    Passage::createBasicPassage(ancient_temple.get(), dark_cave.get(), "south", true);
-    Passage::createBasicPassage(dark_cave.get(), abandoned_village.get(), "west", true);
-    Passage::createBasicPassage(abandoned_village.get(), mystic_lake.get(), "north", true);
+    Passage::createBasicPassage(ancient_temple.get(), devastated_village.get(), "south", true);
+    Passage::createBasicPassage(devastated_village.get(), dark_cave.get(), "west", true);
+    Passage::createBasicPassage(dark_cave.get(), mystic_lake.get(), "north", true);
     Passage::createBasicPassage(mystic_lake.get(), tower_of_sorcery.get(), "west", true);
     Passage::createBasicPassage(tower_of_sorcery.get(), dragon_lair.get(), "north", true);
+
+    // Add the passage from ancient_tree to ancient_tree_top
+    Passage::createBasicPassage(ancient_tree.get(), ancient_tree_top.get(), "up", true);
 
     // Thêm các nhân vật vào các phòng
     magic_forest->addCharacter(std::make_shared<WoundedDeer>("deer", "A deer that is severely wounded and lying on the ground."));
     ancient_temple->addCharacter(std::make_shared<Merchant>("merchant", "A merchant with various goods."));
-    abandoned_village->addCharacter(std::make_shared<Villager>("villager", "A lonely villager looking for help."));
+    devastated_village->addCharacter(std::make_shared<Villager>("villager", "A lonely villager looking for help."));
 
     // Khóa cửa của start-room ban đầu
     start->setLocked(true);
