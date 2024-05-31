@@ -8510,7 +8510,6 @@ CMakeFiles/ZOOrk.dir/Passage.cpp.o: Passage.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   Character.h \
   Command.h \
-  Door.h \
   GameObject.h \
   Item.h \
   Location.h \
@@ -15537,6 +15536,8 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: main.cpp \
   ZOOrkEngine.h
 
 
+Door.h:
+
 main.cpp:
 
 Mushroom.h:
@@ -15548,8 +15549,6 @@ ZOOrkEngine.cpp:
 Villager.h:
 
 Player.cpp:
-
-Door.h:
 
 Passage.cpp:
 

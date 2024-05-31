@@ -1,7 +1,10 @@
-CMakeFiles/ZOOrk.dir/main.cpp.o: \
-  /Users/datnq2001/Downloads/ZOOrk/main.cpp \
-  /Users/datnq2001/Downloads/ZOOrk/RoomDefaultEnterCommand.h \
-  /Users/datnq2001/Downloads/ZOOrk/Command.h \
+CMakeFiles/ZOOrk.dir/Door.cpp.o: \
+  /Users/datnq2001/Downloads/ZOOrk/Door.cpp \
+  /Users/datnq2001/Downloads/ZOOrk/Door.h \
+  /Users/datnq2001/Downloads/ZOOrk/Passage.h \
+  /Users/datnq2001/Downloads/ZOOrk/NullRoom.h \
+  /Users/datnq2001/Downloads/ZOOrk/Room.h \
+  /Users/datnq2001/Downloads/ZOOrk/Character.h \
   /Users/datnq2001/Downloads/ZOOrk/GameObject.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/max.h \
@@ -760,6 +763,8 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/weak_result_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__memory/allocator_destructor.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
+  /Users/datnq2001/Downloads/ZOOrk/Item.h \
+  /Users/datnq2001/Downloads/ZOOrk/Command.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/ios \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__locale \
@@ -826,11 +831,6 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cstdarg \
-  /Users/datnq2001/Downloads/ZOOrk/Passage.h \
-  /Users/datnq2001/Downloads/ZOOrk/NullRoom.h \
-  /Users/datnq2001/Downloads/ZOOrk/Room.h \
-  /Users/datnq2001/Downloads/ZOOrk/Character.h \
-  /Users/datnq2001/Downloads/ZOOrk/Item.h \
   /Users/datnq2001/Downloads/ZOOrk/NullCommand.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__format/formatter.h \
@@ -858,6 +858,7 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/array \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__split_buffer \
+  /Users/datnq2001/Downloads/ZOOrk/RoomDefaultEnterCommand.h \
   /Users/datnq2001/Downloads/ZOOrk/Location.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/is_transparent.h \
@@ -887,15 +888,4 @@ CMakeFiles/ZOOrk.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/datnq2001/Downloads/ZOOrk/Player.h \
-  /Users/datnq2001/Downloads/ZOOrk/ZOOrkEngine.h \
-  /Users/datnq2001/Downloads/ZOOrk/Merchant.h \
-  /Users/datnq2001/Downloads/ZOOrk/Weapon.h \
-  /Users/datnq2001/Downloads/ZOOrk/HealthPotion.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/sstream \
-  /Users/datnq2001/Downloads/ZOOrk/Key.h \
-  /Users/datnq2001/Downloads/ZOOrk/Enemy.h \
-  /Users/datnq2001/Downloads/ZOOrk/Villager.h \
-  /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.h \
-  /Users/datnq2001/Downloads/ZOOrk/FairyFlower.h \
-  /Users/datnq2001/Downloads/ZOOrk/Door.h
+  /Users/datnq2001/Downloads/ZOOrk/Player.h

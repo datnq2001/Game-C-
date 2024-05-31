@@ -1,0 +1,110 @@
+[
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/main.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/main.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/main.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Item.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Item.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Item.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Item.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Character.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Character.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Character.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Character.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Location.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Location.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Location.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Location.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/GameObject.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/GameObject.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/GameObject.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/GameObject.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Room.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Room.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Room.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Room.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Passage.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Passage.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Passage.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Passage.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/NullRoom.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/NullRoom.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/NullRoom.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullRoom.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/NullCommand.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/NullCommand.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/NullCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullCommand.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Player.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Player.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Player.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Player.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/RoomDefaultEnterCommand.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/RoomDefaultEnterCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/ZOOrkEngine.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/ZOOrkEngine.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/ZOOrkEngine.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/ZOOrkEngine.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/PassageDefaultEnterCommand.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/PassageDefaultEnterCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/NullPassage.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/NullPassage.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/NullPassage.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullPassage.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Enemy.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Enemy.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Enemy.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Enemy.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Merchant.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Merchant.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Merchant.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Merchant.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/Villager.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/Villager.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/Villager.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Villager.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o"
+}
+]

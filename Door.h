@@ -12,10 +12,11 @@ public:
     void enter() override {
         Player* player = Player::instance();
         if (player->getLevel() < requiredLevel) {
-            std::cout << "You need to be at least level " << requiredLevel << " to enter the " << toRoom->getName() << ".\n";
+            std::cout << "You need to be at least level " << requiredLevel << " to enter the " << toRoom->getName() << ".\n\n";
+            player->setCurrentRoom(fromRoom);  // Đảm bảo người chơi vẫn ở phòng hiện tại
             return;
         }
-        Location::enter();
+        Passage::enter();
     }
 
 private:

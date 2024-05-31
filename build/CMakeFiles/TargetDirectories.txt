@@ -1,0 +1,3 @@
+/Users/datnq2001/Downloads/ZOOrk/build/CMakeFiles/ZOOrk.dir
+/Users/datnq2001/Downloads/ZOOrk/build/CMakeFiles/edit_cache.dir
+/Users/datnq2001/Downloads/ZOOrk/build/CMakeFiles/rebuild_cache.dir

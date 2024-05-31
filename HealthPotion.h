@@ -10,6 +10,10 @@ public:
 
     int getHealAmount() const { return healAmount; }
 
+    void use() override {
+        std::cout << "You used a " << getName() << ". You regained " << getHealAmount() << " health.\n";
+    }
+
 private:
     int healAmount;
 };

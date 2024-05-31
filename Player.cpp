@@ -97,6 +97,7 @@ void Player::useItem(const std::string& itemName) {
             std::cout << "Your attack increased to " << attack << ".\n";
             equipment.push_back(item);  // Add to equipment
             removeItem(itemName);  // Remove from inventory
+            weapon->use();  // Thay đổi: Gọi phương thức use từ Weapon
         } else if (auto potion = std::dynamic_pointer_cast<HealthPotion>(item)) {
             health += potion->getHealAmount();
             std::cout << "You regained health. Current health: " << health << ".\n";
@@ -104,12 +105,15 @@ void Player::useItem(const std::string& itemName) {
             if (item->getQuantity() <= 0) {
                 removeItem(itemName);
             }
+            potion->use();  // Thay đổi: Gọi phương thức use từ HealthPotion
+        } else {
+            item->use();  // Gọi phương thức use từ các loại item khác
         }
-        item->use();
     } else {
         std::cout << "You don't have " << itemName << ".\n";
     }
 }
+
 
 void Player::unattachItem(const std::string& itemName) {
     auto it = std::find_if(equipment.begin(), equipment.end(),
@@ -209,7 +213,7 @@ void Player::addExperience(int amount) {
 void Player::levelUp() {
     level++;
     exp = 0;
-    std::cout << "<-----  Congratulations! You reached level " << level << "  ----->\n";
+    std::cout << "<-----  Congratulations! You reached level " << level << "  ----->\n\n";
     // Increase stats or provide other benefits here
 }
 

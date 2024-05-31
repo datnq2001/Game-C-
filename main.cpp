@@ -9,6 +9,7 @@
 #include "Villager.h"
 #include "WoundedDeer.h"
 #include "FairyFlower.h"
+#include "Door.h" // Include Door
 
 int main() {
     // Các phòng ban đầu
@@ -48,9 +49,11 @@ int main() {
     // Tạo các lối đi giữa các phòng
     Passage::createBasicPassage(start.get(), south_of_house.get(), "south", true);
     Passage::createBasicPassage(south_of_house.get(), behind_house.get(), "east", true);
-    Passage::createBasicPassage(behind_house.get(), magic_forest.get(), "north", true);
 
-    Passage::createBasicPassage(magic_forest.get(), ancient_temple.get(), "west", true);
+    // Sử dụng Door thay vì Passage cho magic_forest và ancient_temple
+    auto doorToAncientTemple = std::make_shared<Door>("door-to-ancient-temple", "A sturdy door blocking the way to the ancient temple.", magic_forest.get(), ancient_temple.get(), 2);
+    magic_forest->addPassage("west", doorToAncientTemple);
+
     Passage::createBasicPassage(magic_forest.get(), ancient_tree.get(), "east", true);
     Passage::createBasicPassage(ancient_temple.get(), dark_cave.get(), "south", true);
     Passage::createBasicPassage(dark_cave.get(), abandoned_village.get(), "west", true);
