@@ -161,7 +161,7 @@ void Player::attackEnemy(std::shared_ptr<Character> target) {
         } else {
             std::cout << target->getName() << " has " << target->getHealth() << " health remaining.\n";
             reduceHealth(target->getAttack());
-            std::cout << "You take " << target->getAttack() << " damage. Your current health: " << health << ".\n";
+            std::cout << "You take " << target->getAttack() << " damage. Your current health: " << health << "HP.\n\n";
         }
     }
 }
@@ -204,7 +204,7 @@ int Player::getAttack() const {
 
 void Player::addExperience(int amount) {
     exp += amount;
-    std::cout << "You gained " << amount << " experience points.\n";
+    std::cout << "You gained " << amount << " experience points.\n\n";
     while (exp >= getNextLevelExperience()) {
         levelUp();
     }

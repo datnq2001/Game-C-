@@ -9,7 +9,7 @@ public:
         : Item(n, d, quantity, price, attack) {}
 
     void use() override {
-        std::cout << "You equipped the " << getName() << ". Your attack increased by " << getAttack() << ".\n";
+        std::cout << "You equipped the " << getName() << ". Your attack increased by " << getAttack() << ".\n\n";
     }
 };
 
