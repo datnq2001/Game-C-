@@ -9,10 +9,11 @@
 #include "Villager.h"
 #include "WoundedDeer.h"
 #include "FairyFlower.h"
-#include "Door.h" // Include Door
+#include "OtherLegendaryCharacters.h"
+#include "Door.h" 
 
 int main() {
-    // Các phòng ban đầu
+    // Initial rooms
     std::shared_ptr<Room> start = std::make_shared<Room>("start-room",
                            "You are standing in an open field west of a white house, with a boarded front door.\n");
 
@@ -37,7 +38,7 @@ int main() {
     std::shared_ptr<Room> mystic_lake = std::make_shared<Room>("mystic-lake",
                                   "You arrive at a mystic lake. The water glows with a strange light, and you feel an unexplainable power emanating from it.\n");
 
-    std::shared_ptr<Room> tower_of_sorcery = std::make_shared<Room>("tower-of-sorcery",
+    std::shared_ptr<Room> moonlit_grove = std::make_shared<Room>("tower-of-sorcery",
                                   "You stand before the tower of sorcery. It stretches high into the sky, and you can sense a powerful presence within.\n");
 
     std::shared_ptr<Room> dragon_lair = std::make_shared<Room>("dragon-lair",
@@ -49,11 +50,11 @@ int main() {
     std::shared_ptr<Room> ancient_tree_top = std::make_shared<Room>("ancient-tree-top",
                                   "You are on top of the ancient tree. You can see the whole forest from here.\n");
 
-    // Tạo các lối đi giữa các phòng
+    // Creating passages between rooms
     Passage::createBasicPassage(start.get(), south_of_house.get(), "south", true);
     Passage::createBasicPassage(south_of_house.get(), behind_house.get(), "east", true);
 
-    // Sử dụng Door thay vì Passage cho magic_forest và ancient_temple
+    // Using Door instead of Passage for magic_forest and ancient_temple
     auto doorToAncientTemple = std::make_shared<Door>("door-to-ancient-temple", "A sturdy door blocking the way to the ancient temple.", magic_forest.get(), ancient_temple.get(), 2);
     magic_forest->addPassage("west", doorToAncientTemple);
 
@@ -61,20 +62,24 @@ int main() {
     Passage::createBasicPassage(ancient_temple.get(), devastated_village.get(), "south", true);
     Passage::createBasicPassage(devastated_village.get(), dark_cave.get(), "west", true);
     Passage::createBasicPassage(dark_cave.get(), mystic_lake.get(), "north", true);
-    Passage::createBasicPassage(mystic_lake.get(), tower_of_sorcery.get(), "west", true);
-    Passage::createBasicPassage(tower_of_sorcery.get(), dragon_lair.get(), "north", true);
+    Passage::createBasicPassage(mystic_lake.get(), moonlit_grove.get(), "west", true);
+    Passage::createBasicPassage(moonlit_grove.get(), dragon_lair.get(), "north", true);
 
     // Add the passage from ancient_tree to ancient_tree_top
     Passage::createBasicPassage(ancient_tree.get(), ancient_tree_top.get(), "up", true);
 
-    // Thêm các nhân vật vào các phòng
+    // Adding characters to rooms
     magic_forest->addCharacter(std::make_shared<WoundedDeer>("deer", "A deer that is severely wounded and lying on the ground."));
     ancient_temple->addCharacter(std::make_shared<Merchant>("merchant", "A merchant with various goods."));
     devastated_village->addCharacter(std::make_shared<Villager>("villager", "A lonely villager looking for help."));
-
-    // Khóa cửa của start-room ban đầu
+    mystic_lake->addCharacter(std::make_shared<OtherLegendaryCharacters>("water-spirit", "A mystical water spirit that guards the lake."));
+    moonlit_grove->addCharacter(std::make_shared<OtherLegendaryCharacters>("crystal-fairy", "A fairy with immense power that resides in the the moonlit grove."));
+    dragon_lair->addCharacter(std::make_shared<OtherLegendaryCharacters>("ancient-dragon", "A legendary dragon that guards its treasure."));
+    
+    // Lock the start-room door initially
     start->setLocked(true);
 
+    // Create the game engine and start the game
     ZOOrkEngine zoork(start, magic_forest);
 
     zoork.run();

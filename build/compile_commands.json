@@ -106,5 +106,11 @@
   "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp",
   "file": "/Users/datnq2001/Downloads/ZOOrk/WoundedDeer.cpp",
   "output": "CMakeFiles/ZOOrk.dir/WoundedDeer.cpp.o"
+},
+{
+  "directory": "/Users/datnq2001/Downloads/ZOOrk/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o -c /Users/datnq2001/Downloads/ZOOrk/OtherLegendaryCharacters.cpp",
+  "file": "/Users/datnq2001/Downloads/ZOOrk/OtherLegendaryCharacters.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o"
 }
 ]

@@ -345,6 +345,30 @@ NullRoom.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/NullRoom.cpp.s
 .PHONY : NullRoom.cpp.s
 
+OtherLegendaryCharacters.o: OtherLegendaryCharacters.cpp.o
+.PHONY : OtherLegendaryCharacters.o
+
+# target to build an object file
+OtherLegendaryCharacters.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o
+.PHONY : OtherLegendaryCharacters.cpp.o
+
+OtherLegendaryCharacters.i: OtherLegendaryCharacters.cpp.i
+.PHONY : OtherLegendaryCharacters.i
+
+# target to preprocess a source file
+OtherLegendaryCharacters.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.i
+.PHONY : OtherLegendaryCharacters.cpp.i
+
+OtherLegendaryCharacters.s: OtherLegendaryCharacters.cpp.s
+.PHONY : OtherLegendaryCharacters.s
+
+# target to generate assembly for a file
+OtherLegendaryCharacters.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZOOrk.dir/build.make CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.s
+.PHONY : OtherLegendaryCharacters.cpp.s
+
 Passage.o: Passage.cpp.o
 .PHONY : Passage.o
 
@@ -597,6 +621,9 @@ help:
 	@echo "... NullRoom.o"
 	@echo "... NullRoom.i"
 	@echo "... NullRoom.s"
+	@echo "... OtherLegendaryCharacters.o"
+	@echo "... OtherLegendaryCharacters.i"
+	@echo "... OtherLegendaryCharacters.s"
 	@echo "... Passage.o"
 	@echo "... Passage.i"
 	@echo "... Passage.s"

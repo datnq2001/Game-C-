@@ -1,5 +1,3 @@
-//Command.h
-
 #ifndef ZOORK_COMMAND_H
 #define ZOORK_COMMAND_H
 

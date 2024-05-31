@@ -10,13 +10,16 @@
 #include <string>
 #include <vector>
 
+// The ZOOrkEngine class is the main class for the game. It handles the game loop and player input.
 class ZOOrkEngine {
 public:
+    // Constructor for the ZOOrkEngine class. Initializes the game with a starting room and the magic forest.
     ZOOrkEngine(std::shared_ptr<Room> start, std::shared_ptr<Room> magic_forest);
 
     void run();
 
 private:
+    
     bool gameOver = false;
     bool deerFound = false;
     bool deerFeed = false;
@@ -24,7 +27,6 @@ private:
     bool mushroomTaken = false;
     bool keyTaken = false;
     bool plantMoved = false;
-    // bool climbTree = false;
     Player *player;
     std::shared_ptr<Room> startRoom;
     std::shared_ptr<Room> magicForest;
@@ -47,6 +49,7 @@ private:
     void handleAttackCommand(std::vector<std::string>);
     void handleQuitCommand(std::vector<std::string>);
     void handleCheckInfoCommand(std::vector<std::string>);
+    void handleQuestStatusCommand(std::vector<std::string>); 
 
     static std::vector<std::string> tokenizeString(const std::string&);
     static std::string makeLowercase(std::string);

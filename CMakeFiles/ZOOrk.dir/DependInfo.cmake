@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/datnq2001/Downloads/ZOOrk/NullCommand.cpp" "CMakeFiles/ZOOrk.dir/NullCommand.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/NullCommand.cpp.o.d"
   "/Users/datnq2001/Downloads/ZOOrk/NullPassage.cpp" "CMakeFiles/ZOOrk.dir/NullPassage.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/NullPassage.cpp.o.d"
   "/Users/datnq2001/Downloads/ZOOrk/NullRoom.cpp" "CMakeFiles/ZOOrk.dir/NullRoom.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/NullRoom.cpp.o.d"
+  "/Users/datnq2001/Downloads/ZOOrk/OtherLegendaryCharacters.cpp" "CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o.d"
   "/Users/datnq2001/Downloads/ZOOrk/Passage.cpp" "CMakeFiles/ZOOrk.dir/Passage.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/Passage.cpp.o.d"
   "/Users/datnq2001/Downloads/ZOOrk/PassageDefaultEnterCommand.cpp" "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o.d"
   "/Users/datnq2001/Downloads/ZOOrk/Player.cpp" "CMakeFiles/ZOOrk.dir/Player.cpp.o" "gcc" "CMakeFiles/ZOOrk.dir/Player.cpp.o.d"

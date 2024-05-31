@@ -1,10 +1,9 @@
-////RoomDefaultEnterCommand.h
-
 #ifndef ZOORK_ROOMDEFAULTENTERCOMMAND_H
 #define ZOORK_ROOMDEFAULTENTERCOMMAND_H
 
 #include "Command.h"
 
+// Class definition for RoomDefaultEnterCommand which inherits from Command
 class RoomDefaultEnterCommand : public Command {
 public:
     explicit RoomDefaultEnterCommand(GameObject* g) : Command(g) {}

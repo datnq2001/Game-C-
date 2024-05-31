@@ -9,7 +9,7 @@
 #include <vector>
 
 class Passage;
-
+// The Room class represents a location in the game.
 class Room : public Location {
 public:
     Room(const std::string &, const std::string &);
@@ -52,7 +52,7 @@ protected:
     std::vector<std::shared_ptr<Character>> characters;
     std::map<std::string, std::shared_ptr<Passage>> passageMap;
     bool plantMoved = false;
-    bool locked = false;  // Cờ để xác định phòng có bị khóa hay không
+    bool locked = false;  
     bool goblinsInitialized = false;
 };
 

@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ZOOrk.dir/NullPassage.cpp.o.d"
   "CMakeFiles/ZOOrk.dir/NullRoom.cpp.o"
   "CMakeFiles/ZOOrk.dir/NullRoom.cpp.o.d"
+  "CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o"
+  "CMakeFiles/ZOOrk.dir/OtherLegendaryCharacters.cpp.o.d"
   "CMakeFiles/ZOOrk.dir/Passage.cpp.o"
   "CMakeFiles/ZOOrk.dir/Passage.cpp.o.d"
   "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.o"

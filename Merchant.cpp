@@ -5,7 +5,9 @@
 #include <iostream>
 #include <algorithm>
 
+// Constructor for Merchant class
 Merchant::Merchant(const std::string &n, const std::string &d) : Character(n, d) {
+    // Add items to the merchant's inventory
     addItemToInventory(std::make_shared<Weapon>("Basic-Sword", "A basic sword with 50 physical attack.", 1, 80, 50));
     addItemToInventory(std::make_shared<Weapon>("Silver-Sword", "A powerful sword with 80 physical attack.", 1, 140, 80));
     addItemToInventory(std::make_shared<Weapon>("Magic-Wand", "A wand with 60 magic attack.", 1, 120, 60));
@@ -13,11 +15,13 @@ Merchant::Merchant(const std::string &n, const std::string &d) : Character(n, d)
     addItemToInventory(std::make_shared<HealthPotion>("Health-Potion", "A potion that restores 20 HP.", 1, 10, 20));
 }
 
+// Add items to the merchant's inventory
 void Merchant::interact() {
     std::cout << "The merchant says: 'Care to trade? I have many goods to offer.'\n";
     showInventory();
 }
 
+// Display the merchant's inventory
 void Merchant::showInventory() const {
     std::cout << "Merchant's Inventory:\n";
     for (const auto &item : inventory) {
@@ -36,6 +40,7 @@ void Merchant::showInventory() const {
     }
 }
 
+// Method to sell an item to the player
 void Merchant::sellItem(const std::string &itemName, Player *player) {
     auto it = std::find_if(inventory.begin(), inventory.end(),
                 [&itemName](const std::shared_ptr<Item>& item) { 
@@ -66,6 +71,7 @@ void Merchant::sellItem(const std::string &itemName, Player *player) {
     }
 }
 
+// Method to buy an item from the player
 void Merchant::buyItemFromPlayer(const std::string &itemName, Player *player) {
     auto item = player->retrieveItem(itemName);
     if (item) {
@@ -78,6 +84,7 @@ void Merchant::buyItemFromPlayer(const std::string &itemName, Player *player) {
     }
 }
 
+// Add item to merchant's inventory
 void Merchant::addItemToInventory(const std::shared_ptr<Item>& item) {
     inventory.push_back(item);
 }

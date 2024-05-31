@@ -6,16 +6,19 @@
 #include "NullRoom.h"
 #include <vector>
 #include <memory>
+#include <string>
 
+// The Player class represents the player character in the game.
 class Player : public Character {
 public:
+    // Static method to get the player instance.
     static Player *instance() {
         if (!playerInstance) {
             playerInstance = new Player();
         }
         return Player::playerInstance;
     }
-
+    
     void setCurrentRoom(Room*);
 
     Room* getCurrentRoom() const;
@@ -27,9 +30,9 @@ public:
     std::shared_ptr<Item> retrieveItem(const std::string& itemName);
     
     void listInventory() const;
-    void listEquipment() const; // New method to list equipment
+    void listEquipment() const;
     void useItem(const std::string& itemName);
-    void unattachItem(const std::string& itemName); // New method to unattach item
+    void unattachItem(const std::string& itemName);
 
     void interactWithCharacter(const std::string& characterName);
     void interact() override;
@@ -43,33 +46,47 @@ public:
     int getHealth() const;
     int getAttack() const;
 
-    void addExperience(int amount); // New method to add experience points
-    void levelUp(); // New method to handle level up
-    int getLevel() const; // Get current level
-    int getExperience() const; // Get current experience
-    int getNextLevelExperience() const; // Get experience required for next level
-
+    void addExperience(int amount);
+    void levelUp();
+    int getLevel() const;
+    int getExperience() const;
+    int getNextLevelExperience() const;
 
     void attackEnemy(std::shared_ptr<Character> target);
-    
-    // Delete copy constructor and assignment operator
+
+    void startQuest(const std::string& questName, int targetCount, const std::string& targetType, int expReward, int goldReward);
+    void updateQuestProgress(const std::string& targetType);
+    void checkQuestStatus() const;
+    bool isQuestCompleted() const;
+    void completeQuest();
+
     Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;
 
 private:
+    // Private constructor to prevent instantiation.
     static Player *playerInstance;
     Room* currentRoom;
     int gold;
     int health;
     int attack;
-    int level; // New attribute for player level
-    int exp; // New attribute for player experience
+    int level;
+    int exp;
+
+    std::string questName;
+    int targetCount;
+    int defeatedCount;
+    std::string targetType;
+    int expReward;
+    int goldReward;
+    bool questActive;
 
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."),
-               currentRoom(new NullRoom()), gold(1000), health(200), attack(5), level(1), exp(0) {}
+               currentRoom(new NullRoom()), gold(0), health(200), attack(5), level(1), exp(0),
+               questName(""), targetCount(0), defeatedCount(0), targetType(""), expReward(0), goldReward(0), questActive(false) {}
 
     std::vector<std::shared_ptr<Item>> inventory;
-    std::vector<std::shared_ptr<Item>> equipment; // New vector for equipment
+    std::vector<std::shared_ptr<Item>> equipment;
 };
 
 #endif //ZOORK_PLAYER_H
